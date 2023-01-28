@@ -1,0 +1,131 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\IssueTyre;
+use App\Models\Tyres;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
+
+class TyresController extends Controller
+{
+    public function __construct(){
+        $this->middleware('auth');
+    }
+    //
+    public function AllTyreDash()
+    {
+        $tyres = Tyres::latest()->paginate(4);
+        return view('admin.tyres.tyredash', compact('tyres'));
+    }
+    public function AllTyres()
+    {
+        $tyres = Tyres::latest()->paginate(4);
+        return view('admin.tyres.index', compact('tyres'));
+    }
+
+    public function TyreAdd(Request $request)
+    {
+        //Perform Validations
+        $validated = $request->validate([
+            'front_or_back_tyre' => 'required|max:255',
+            'tyre_serial' => 'required|unique:tyres|max:255',
+            //'size' => 'required|max:255',
+            'manufacturer' => 'required|max:255',
+            'status' => 'required|max:255',
+
+        ],
+            [
+                'tyre_serial.required' => 'Please Input Tyre Serial Number',
+
+            ]);
+        Tyres::insert([
+            // $request->session->put('tyreid', $request->getId()),
+            // Session::get('tyreid'),
+            'front_or_back_tyre' => $request->front_or_back_tyre,
+            'tyre_serial' => $request->tyre_serial,
+            'size' => $request->size,
+            'manufacturer' => $request->manufacturer,
+            'status' => $request->status,
+            'created_at' => Carbon::now(),
+            // print_r($tyreid['id']);
+        ]);
+
+        return Redirect()->route('all.tyre')->with('success', 'Tyre Successfully registered!');
+    }
+
+    public function DeleteTyre(Request $request, $id)
+    {
+        $delete = Tyres::find($id)->delete();
+        return Redirect()->route('all.tyre')->with('success', 'Tyre Successfully Deleted!');
+    }
+
+    public function EditTyre(Request $request, $id)
+    {
+        $tyres = Tyres::find($id);
+        return view('admin.tyres.edit', compact('tyres'));
+    }
+
+    public function UpdateTyre(Request $request, $id)
+    {
+        $tyres = Tyres::find($id)->update([
+            'front_or_back_tyre' => $request->front_or_back_tyre,
+            'tyre_serial' => $request->tyre_serial,
+            'size' => $request->size,
+            'manufacturer' => $request->manufacturer,
+            'status' => $request->status,
+        ]);
+        return Redirect()->route('all.tyre')->with('success', 'Tyre Successfully Updated!');
+    }
+
+    public function ManageTyres(Request $request, $id)
+    {
+        $tyres = Tyres::find($id);
+        return view('admin.tyres.issue', compact('tyres'));
+    }
+    public function IssueTyre(Request $request)
+    {
+        // $issue_tyres=IssueTyre::find($id);
+        // return view('admin.tyres.issue', compact('issue_tyres'));
+
+        IssueTyre::insert([
+            'user_id' => Auth::user()->id,
+            'issue_to' => $request->issue_to,
+            // 'tyre_id' => $request->Session::get('tyreid'),
+            'driverid' => $request->driverid,
+            'numberplate_id' => $request->numberplate_id,
+            'status' => $request->status,
+            'created_at' => Carbon::now(),
+          
+        ]);
+
+        // Tyres::insert([
+        //     'status' => $request->status,
+        // ]);
+
+        return Redirect()->route('all.tyre')->with('success', 'Tyre Successfully Issued!');
+    }
+
+    //Tyre Dashboard
+    public function IssueTyreDass(){
+        // $tyres = Tyres::join('issue_tyres', 'tyres.id' = 'issue_tyres.id')->get(['tyres.*', 'issue_tyres.descrption']);
+        $tyres = Tyres::latest()->paginate(4)->join('issue_tyres', 'tyres.id', '=', 'issue_tyres.id')
+               ->get(['tyres.*', 'issue_tyres.status']);
+
+        return view('admin.tyredash.issued', compact('tyres'));
+    }
+
+    public function IssueTyreDasj(){
+        $tyres = Tyres::with('issueTyre')->get();
+        $issuetyres = IssueTyre::with('tyre')->get();
+
+        return view('admin.tyredash.issued', compact('tyres','issuetyres'));
+    }
+
+    // public function IssueTyreDas(){
+    //     $tyres = DB::table('issueTyres')
+    // }
+
+    
+}

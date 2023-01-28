@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class Trip extends Model
+{
+    use HasFactory;
+
+    use SoftDeletes;
+     protected $fillable = [
+        'user_id',
+        'trailer',
+        'route',
+        'depart_date',
+        'return_date',
+        'origin',
+        'destination',
+        'distance',
+       
+    ];
+
+    public function user(){
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
+}

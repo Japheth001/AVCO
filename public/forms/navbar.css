@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Poppins:wght@300&display=swap');
+
+nav {
+    /* background-color: #3a24f0; */
+    /* padding: 10px; */
+    text-align: center;
+    width: 100%;
+  
+    /* Pay special attention here! */
+    position: sticky;
+    top: 0px;
+    z-index:1; /*Add this*/
+   
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0px 10px;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  @media
+(prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
