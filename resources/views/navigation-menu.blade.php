@@ -35,12 +35,20 @@
                         {{ __('   Expense  ') }}
                     </x-jet-nav-link>
 
-                   <x-jet-nav-link href="{{route('all.category') }}">
+                   <!-- <x-jet-nav-link href="{{route('all.category') }}">
                         {{ __(' Menu') }}
-                    </x-jet-nav-link>
+                    </x-jet-nav-link> -->
 
                     <x-jet-nav-link href="{{route('all.brands') }}">
                         {{ __(' Brand') }}
+                    </x-jet-nav-link>
+
+                    <!-- <x-jet-nav-link href="{{route('all.brands') }}">
+                        {{ __('Categories') }}
+                    </x-jet-nav-link> -->
+
+                    <x-jet-nav-link href="{{route('view.newcat') }}">
+                        {{ __('Categories') }}
                     </x-jet-nav-link>
 
                     <x-jet-nav-link href="{{route('all.vehicles') }}">
@@ -63,9 +71,9 @@
                         {{ __(' Maintenance') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{route('all.multi')}}">
+                    <!-- <x-jet-nav-link href="{{route('all.multi')}}">
                         {{ __(' Multi Image') }}
-                    </x-jet-nav-link>
+                    </x-jet-nav-link> -->
 
                 </div>
             </div>

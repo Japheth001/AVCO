@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
+use RealRashid\SweetAlert\Facades\Alert;
+
+?>
+<script src="{{asset('dist/assets/sweetalert2.min.js')}}"></script>
+
+<link rel="stylesheet" href="{{asset('dist/assets/sweetalert2.min.css')}}">
+<?php
 
 // use Nette\Utils\Image;
 // use Intervention\Image\Image;
@@ -25,7 +32,7 @@ class BrandController extends Controller
     //
     public function AllBrand()
     {
-        $brands = Brand::latest()->paginate(5);
+        $brands = Brand::latest()->paginate(4);
         return view('admin.braco.index', compact('brands'));
     }
 
@@ -68,6 +75,7 @@ class BrandController extends Controller
         Brand::insert([
             'brand_name' => $request->brand_name,
             'brand_image' => $last_img,
+            'status'=>$request->status==true ? '1':'0',
             'created_at' => Carbon::now(),
         ]);
 
@@ -83,11 +91,11 @@ class BrandController extends Controller
 
     public function UpdateBrand(Request $request, $id)
     {
-        $brand_image = $request->file('brand_image');
+        // $brand_image = $request->file('brand_image');
        
-        $name_gen = md5(rand(1000, 10000)) . '.' . $brand_image->getClientOriginalExtension();
-        Image::make($brand_image)->resize(300, 200)->save('storage/images/brand/' . $name_gen);
-        $last_img = 'images/brand/' . $name_gen;
+        // $name_gen = md5(rand(1000, 10000)) . '.' . $brand_image->getClientOriginalExtension();
+        // Image::make($brand_image)->resize(300, 200)->save('storage/images/brand/' . $name_gen);
+        // $last_img = 'images/brand/' . $name_gen;
         
         
         
@@ -95,17 +103,18 @@ class BrandController extends Controller
         Brand::find($id)->update([
             'brand_name' => $request->brand_name,
            
-            'brand_image' => $last_img,
+            // 'brand_image' => $last_img,
+            'status'=>$request->status==true ? '1':'0',
             'user_id' => Auth::user()->id,
         ]);
 
-        return Redirect()->route('all.brand')->with('success', 'Brand Updated Successfully!');
+        return Redirect()->route('all.brands')->with('update', 'Brand Updated Successfully!');
     }
 
     public function DeleteBrand($id)
     {
         Brand::find($id)->delete();
-        return Redirect()->route('all.brand')->with('success', 'Brand Deleted Successfully');
+        return Redirect()->route('all.brands')->with('delete', 'Brand Deleted Successfully');
     }
 
     ////All Multi Images

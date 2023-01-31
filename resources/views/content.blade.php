@@ -1,6 +1,8 @@
 <!-- @extends('layouts.adminD')
 @section('contentfGH') -->
 <!-- Content -->
+
+
 <div class="content">
             <!-- Animated -->
             <div class="animated fadeIn">

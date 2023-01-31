@@ -1,74 +1,556 @@
 <!DOCTYPE html>
-<html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
   <title>AVCO</title>
-  <meta content="" name="descriptison">
-  <meta content="" name="keywords">
+  <link rel="stylesheet" type="text/css" href="{{asset('front/style.css')}}">
+  <script src="{{asset('front/js/jquery.js')}}"></script>
+  <script src="{{asset('front/js/jquery-ui.js')}}"></script>
+  <script src="{{asset('front/js/jquery-ui.min.js')}}"></script>
+  <script src="{{asset('front/js/boostrap/bootstrap.js')}}"></script>
+  <link rel="stylesheet" href="{{asset('front/css/boostrap/bootstrap.min.css')}}">
+  <script src="{{asset('front/js/boostrap/bootstrap.min.js')}}"></script>
+  <script src="{{asset('front/js/smooth-scroll.js')}}"></script>
+  <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="{{asset('front/css/font-awesome.css')}}">
 
-  <!-- Favicons -->
-  <link href="{{asset('fronted/assets/img/favicon.png')}}" rel="icon">
-  <link href="{{asset('fronted/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="{{asset('fronted/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-  <link href="{{asset('fronted/assets/vendor/icofont/icofont.min.css')}}" rel="stylesheet">
-  <link href="{{asset('fronted/assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
-  <link href="{{asset('fronted/assets/vendor/animate.css/animate.min.css')}}" rel="stylesheet">
-  <link href="{{asset('fronted/assets/vendor/venobox/venobox.css')}}" rel="stylesheet">
-  <link href="{{asset('fronted/assets/vendor/owl.carousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
-  <link href="{{asset('fronted/assets/vendor/aos/aos.css')}}" rel="stylesheet">
-  <link href="{{asset('fronted/assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js>"
 
-  <!-- Template Main CSS File -->
-  <link href="{{asset('fronted/assets/css/style.css')}}" rel="stylesheet">
 
-  <!-- =======================================================
-  * Template Name: Company - v2.1.0
-  * Template URL: https://bootstrapmade.com/company-free-html-bootstrap-template/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
-
 <body>
 
- @include('layouts.bodyf.header')
- @include('layouts.bodyf.slider')
+    <!--Navigation Bar-->
+    <section id="nav-bar">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img src="{{asset('front/images/logo7.jpg')}}"><span class="title-color">AVCO Limited Company</span>.</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#about">About Us</a>
+                  </li>
 
-  <main id="main">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#ourbranches">Branches</a>
+                </li>
 
-    
-  @yield('contentf')
+                  <li class="nav-item">
+                    <a class="nav-link" href="#services">Services</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="#team" tabindex="-1" aria-disabled="true">Our Team</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="#testimonials">Testimonials</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="#availability">Availability</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contacts</a>
+                  </li>
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{route('login')}}">Login</a>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </nav>
+    </section>
 
 
-  </main><!-- End #main -->
 
- @include('layouts.bodyf.footer')
 
-  <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="{{asset('fronted/assets/vendor/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('fronted/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{asset('fronted/assets/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
-  <script src="{{asset('fronted/assets/vendor/php-email-form/validate.js')}}"></script>
-  <script src="{{asset('fronted/assets/vendor/jquery-sticky/jquery.sticky.js')}}"></script>
-  <script src="{{asset('fronted/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
-  <script src="{{asset('fronted/assets/vendor/venobox/venobox.min.js')}}"></script>
-  <script src="{{asset('fronted/assets/vendor/waypoints/jquery.waypoints.min.js')}}"></script>
-  <script src="{{asset('fronted/assets/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
-  <script src="{{asset('fronted/assets/vendor/aos/aos.js')}}"></script>
 
-  <!-- Template Main JS File -->
-  <script src="{{('fronted/assets/js/main.js')}}"></script>
+
+   <!--Slider-->
+    <div class="slider" >
+
+      <div id="headSlider" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#headSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#headSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#headSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+
+        <div class="carousel-inner">
+
+
+
+          <div class="box11" style="margin-top: 200px;color: white" >
+
+
+            <h1 style="text-align: center; font-size: 30px"> Welcome To Our Logistic Services</h1>
+              <h1 style="text-align: center; font-size: 25px">Active</h1>
+              <marquee><h1 style="text-align: center; font-size: 20px; color: white">Karibu tena..!</h1></marquee>
+
+
+
+            </div>
+
+
+
+
+          <div class="carousel-item active">
+
+            <img src="{{asset('front/images/software1.jpg')}}" class="d-block img-fluid" alt="...">
+            <div class="carousel-caption">
+              <br><br><br><br><br><br><br><br>
+                <h5>We value our customers</h5>
+
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{{asset('front/images/software30.jpg')}}" class="d-block img-fluid" alt="...">
+
+            <div class="carousel-caption">
+              <br><br><br><br><br><br>
+              <h5>Locate Goods and services faster</h5>
+          </div>
+          </div>
+          <div class="carousel-item">
+            <img src="{{asset('front/images/software29.jpg')}}" class="d-block img-fluid" alt="...">
+            <div class="carousel-caption">
+              <br><br><br><br><br><br>
+              <h5>You are our priority</h5>
+          </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#headSlider"  data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#headSlider"  data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+
+
+
+
+    <!--ABOUT US SECTION-->
+    <div id="about">
+      <div class="container">
+          <div class="row">
+              <div class="col-md-6">
+                <h2>About Us</h2>
+                <div class="about-content">
+                  <p>Being a technology focused company, we leverage technology in every aspect of our marketing solutions in order to provide our customers with goods and services.</p>
+                </div>
+                <button type="button" class="btn btn-primary">Read More</button>
+              </div>
+              <div class="col-md-6 skills-bar">
+                <p>Monthly Promotions</p>
+                <div class="progress">
+                  <div class="progress-bar" style="width: 80%;">80%</div>
+
+                  </div>
+                  <p>Monthly Offers</p>
+                  <div class="progress">
+                    <div class="progress-bar" style="width: 75%;">75%</div>
+
+                    </div>
+                    <p>Discounts</p>
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 70%;">70%</div>
+
+                      </div>
+                </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+<!--Our Branches-->
+<div id="ourbranches">
+    <caption><h1>Our Branches</h1></caption>
+
+    <div class="branches">
+    <ul id="listing">
+      <li> Orange Towers, Nairobi KE</li>
+      <li> Hill Services Mall, Moshi TZ</li>
+      <li> Highrise, Kigali RW</li>
+      <li> Redsson, Kampala UG</li>
+      <li> Ocean Mall,Bujumbura BI</li>
+      <li> Apple Shop, Juba SS</li>
+    </ul>
+    </div>
+
+  </div>
+
+
+
+
+
+    <!--Download the App-->
+    <section id="promo">
+      <div class="container">
+          <p>Download Our Business Mobile App for Free</p>
+          <a href="http://play.google.com/store/apps/" class="btn btn-primary">Click to Download</a>
+      </div>
+  </section>
+
+    <!--Services-->
+    <section id="services">
+      <div class="container">
+        <h1>Our Services</h1>
+        <div class="row services">
+            <div class="col-md-3 text-center">
+              <div class="icon">
+                  <i class="fa fa-desktop"></i>
+                </div>
+                  <h3>Web Development</h3>
+                  <p>Being a technology focused company, we leverage technology in every aspect of our security solutions in order to provide our customers with state of the art security solutions.</p>
+
+            </div>
+
+
+            <div class="col-md-3 text-center">
+              <div class="icon">
+                  <i class="fa fa-tablet"></i>
+                </div>
+                  <h3>App Development</h3>
+                  <p>Being a technology focused company, we leverage technology in every aspect of our security solutions in order to provide our customers with state of the art security solutions.</p>
+
+            </div>
+
+            <div class="col-md-3 text-center">
+              <div class="icon">
+                  <i class="fa fa-line-chart"></i>
+                </div>
+                  <h3>Digital Marketing</h3>
+                  <p>Being a technology focused company, we leverage technology in every aspect of our security solutions in order to provide our customers with state of the art security solutions.</p>
+
+            </div>
+
+
+            <div class="col-md-3 text-center">
+              <div class="icon">
+                  <i class="fa fa-paint-brush"></i>
+                </div>
+                  <h3>Graphic Designing</h3>
+                  <p>Being a technology focused company, we leverage technology in every aspect of our security solutions in order to provide our customers with state of the art security solutions.</p>
+
+            </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!--Our Team-->
+    <section id="team">
+      <div class="container">
+          <h1>Our Team</h1>
+          <div class="row">
+              <div class="col-md-3 profile-pic text-center">
+                  <div class="img-box">
+                      <img src="{{asset('front/images/logo9.jpg')}}" class="img-responsive">
+                      <ul>
+                        <a href="#"><li><i class="fa fa-facebook"></i></li></a>
+                        <a href="#"><li><i class="fa fa-twitter"></i></li></a>
+                        <a href="#"><li><i class="fa fa-linkedin"></i></li></a>
+                      </ul>
+                  </div>
+
+                  <h2>Mary N.</h2>
+                      <h3>Founder / CEO</h3>
+                      <p>Well visioned and focused to serve clients with highest level of professionalism</p>
+              </div>
+
+
+              <div class="col-md-3 profile-pic text-center">
+                <div class="img-box">
+                    <img src="{{asset('front/images/japs.png')}}"  class="img-responsive">
+                    <ul>
+                      <a href="#"><li><i class="fa fa-facebook"></i></li></a>
+                      <a href="#"><li><i class="fa fa-twitter"></i></li></a>
+                      <a href="#"><li><i class="fa fa-linkedin"></i></li></a>
+                    </ul>
+                </div>
+
+                <h2>Japheth M</h2>
+                    <h3>Business Head</h3>
+                    <p>Client focused and Well visioned to deliver quality products</p>
+            </div>
+
+
+            <div class="col-md-3 profile-pic text-center">
+              <div class="img-box">
+                  <img src="{{asset('front/images/jac.jpg')}}" class="img-responsive">
+                  <ul>
+                    <a href="#"><li><i class="fa fa-facebook"></i></li></a>
+                    <a href="#"><li><i class="fa fa-twitter"></i></li></a>
+                    <a href="#"><li><i class="fa fa-linkedin"></i></li></a>
+                  </ul>
+              </div>
+
+              <h2>Petra J</h2>
+                  <h3>UI Designer</h3>
+                  <p>Heuristics expert with keen eye for detail</p>
+          </div>
+
+
+          <div class="col-md-3 profile-pic text-center">
+            <div class="img-box">
+                <img src="{{asset('front/images/logo9.jpg')}}" class="img-responsive">
+                <ul>
+                  <a href="#"><li><i class="fa fa-facebook"></i></li></a>
+                  <a href="#"><li><i class="fa fa-twitter"></i></li></a>
+                  <a href="#"><li><i class="fa fa-linkedin"></i></li></a>
+                </ul>
+            </div>
+
+            <h2>James Son</h2>
+                <h3>Digital Marketing</h3>
+                <p>Product innovation has always been a competitive differentiator for us.</p>
+        </div>
+
+
+          </div>
+      </div>
+    </section>
+
+
+
+
+
+    <!--Testimonials-->
+    <section id="testimonials">
+        <div class="container">
+          <h1>Testimonials</h1>
+          <p class="text-center">Comments</p>
+
+          <div class="row">
+              <div class="col-md-4 text-center">
+                  <div class="profile">
+                      <img src="{{asset('front/images/logo22.jpg')}}" class="user">
+                      <blockquote>I have used the app, It's quite efficient</blockquote>
+                      <h3>Japheth M <span>Co-Founder at XYZ Company</span></h3>
+                  </div>
+              </div>
+
+
+
+              <div class="col-md-4 text-center">
+                <div class="profile">
+                    <img src="{{asset('front/images/logo22.jpg')}}" class="user">
+                    <blockquote>Thanks to Business Mobile App, I have been able to gain real-time visibility on how to access goods and services faster than before.</blockquote>
+                    <h3>Wanjiku K - <span>Customer</span></h3>
+                </div>
+            </div>
+
+
+
+            <div class="col-md-4 text-center">
+              <div class="profile">
+                  <img src="{{asset('front/images/logo16.jpg')}}" class="user">
+                  <blockquote>I have used the app, It's quite efficient</blockquote>
+                  <h3>Zipporah Mutua - <span>Manager at Ushindi Supermarket</span></h3>
+              </div>
+          </div>
+          </div>
+        </div>
+    </section>
+
+
+    <!--Weekly Performance Table-->
+    <div id="availability">
+    <caption><h1>Our Availability</h1></caption>
+    <table class="allocation">
+
+      <thead>
+      <tr>
+              <th>Day</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+
+      <tr>
+        <td>Monday - Friday</td>
+        <td>8:00 a.m. to 6:00 p.m.</td>
+      </tr>
+
+      <tr>
+        <td>Saturday</td>
+        <td>8:00 a.m. to 6:00 p.m. </td>
+      </tr>
+
+      <tr>
+        <td>Sunday</td>
+        <td>Closed</td>
+      </tr>
+
+
+    </table>
+    </div>
+
+
+
+
+
+
+
+    <!--Our Branches-->
+
+<!--
+<caption><h1>Our Branches</h1></caption>
+
+<div class="branches">
+<ul>
+  <li> Orange Towers, Nairobi KE</li>
+  <li> Hill Services Mall, Moshi TZ</li>
+  <li> Highrise, Kigali RW</li>
+  <li> Redsson, Kampala UG</li>
+  <li> Ocean Mall,Bujumbura BI</li>
+  <li> Apple Shop, Juba SS</li>
+</ul>
+</div>
+
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--Get in Touch-->
+    <section id="contact">
+      <div class="container">
+          <h1>Get in Touch</h1>
+          <div class="row">
+              <div class="col-md-6">
+                  <form class="contact-form" id="contactForm">
+
+
+                    <div class="alert">Your Message sent successfully</div>
+
+                      <div class="form-group">
+                          <input type="text" class="form-control" id="nameid" placeholder="Your name">
+                      </div>
+
+                      <div class="form-group">
+                        <input type="number" class="form-control" id="pnumberid" placeholder="Phone no.">
+                      </div>
+
+                    <div class="form-group">
+                      <input type="text" class="form-control" id="emailid" placeholder="Email id">
+                    </div>
+
+                    <div class="form-group">
+                      <textarea class="form-control" id="msgContent" placeholder="Your Message" rows="4"></textarea>
+                  </div>
+
+                  <button type="submit" class="btn btn-primary">SEND MESSAGE</button>
+                  </form>
+              </div>
+
+                       <div class="col-md-6 contact-info">
+                       <div class="follow"><b>Address:  </b><i class="fa fa-map-marker"></i>Along Langata Road, TMall, Nairobi</div>
+
+
+
+                        <div class="follow"><b><i class="fa fa-phone"></i>Phone:   </b>+254 712 345 678</div>
+
+
+
+                        <div class="follow"><b><i class="fa fa-envelope-o"></i>Email:  </b>example@gmail.com</div>
+
+                        <div class="follow"><label><b>Get Social: </b></label>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                        </div>
+            </div>
+          </div>
+      </div>
+    </section>
+
+
+<script>https://cdnjs.cloudflare.com/ajax/libs/firebase/9.6.7/firebase-remote-config.min.js</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/0.6.7/firebase-remote-config."></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1.0/firebase"></script>
+<script src="{{asset('front/js/firebase.js')}}"></script>
+
+
+
+
+
+
+
+    <!--Footer-->
+    <section id="footer">
+      <div class="container text-center">
+
+      <div class="marq">
+       <marquee><p>Developed by Japheth M and Petra J B | &copy;2022 <i class="fa fa-apple"></i></p></marquee>
+      </div>
+
+      </div>
+    </section>
+
+    <!--Footer End-->
+    <script src="path/to/smooth-scroll.polyfills.min.js"></script>
+    <script>
+      var scroll = new SmoothScroll('a[href*="#"]');
+    </script>
+
+
+
+
+
+      
+
 
 </body>
-
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <br>
+                <div class="marq">
+                <marquee style: scrolldelay="100">Welcome again...! &#129336; &#x1F938; &#129336; &#x1F938; </marquee>
+                </div>
+
+              -->

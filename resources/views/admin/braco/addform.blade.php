@@ -50,6 +50,13 @@
                             <span class="text-danger">{{$message}}</span>
                             @enderror
 
+                            
+                            <div class="col-md-6 mb-3">
+                                                <label>Status</label><br>
+                                                <input type="checkbox" name="status" class = "form-control"></>
+                            </div>
+
+
 
                                             <div class="form-group">
                                             <label for="exampleInputEmail1">Add Brand Image</label>

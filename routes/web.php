@@ -13,6 +13,7 @@ use App\Http\Controllers\TripController;
 use App\Http\Controllers\TyresController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\NewCategoriesController;
 use App\Models\Brand;
 use App\Models\Slider;
 use App\Models\User;
@@ -40,7 +41,8 @@ Route::get('/', function () {
     // return $img->response('jpg');
     $brands = Brand::all();
     $sliders = Slider::all();
-    return view('homef', compact('brands', 'sliders'));
+    // return view('homef', compact('brands', 'sliders'));
+    return view('layouts.masterf', compact('brands', 'sliders'));
     // return view('welcome');
 });
 
@@ -198,3 +200,12 @@ Route::post('expense/add', [ExpenseController::class, 'AddExpense'])->name('expe
 Route::get('/expense/getExpense/{id}', [ExpenseController::class, 'GetExpense']);
 Route::post('/expense/update/{id}', [ExpenseController::class, 'UpdateExpense'])->name('expense.update');
 Route::get('expense/delete/{id}', [ExpenseController::class, 'DeleteExpense']);
+
+
+// NewCategoriesController
+Route::get('/newcat/all', [NewCategoriesController::class, 'AllNewCat'])->name('all.newcat');
+Route::get('/newcat/new', [NewCategoriesController::class, 'ViewNewCat'])->name('view.newcat');
+Route::post('newcat/add', [NewCategoriesController::class, 'AddNewCat'])->name('newcat.add');
+Route::get('/newcat/getNewCat/{id}', [NewCategoriesController::class, 'GetNewCat']);
+Route::post('/newcat/update/{id}', [NewCategoriesController::class, 'UpdateNewCat'])->name('newcat.update');
+Route::get('newcat/delete/{id}', [NewCategoriesController::class, 'DeleteNewCat']);
