@@ -4,25 +4,27 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\Products;
 
-class NewCatModel extends Model
+class Products extends Model
 {
     use HasFactory;
 
-    protected $table = 'new_cat_models';
+    protected $table='products';
     protected $fillable = [
+        'category_id',
         'name',
         'slug',
+        'brand',
+        'small_description',
         'description',
-        'image',
+        'original_price',
+        'selling_price',
+        'quantity',
+        'trending',
+        'status',
         'meta_title',
         'meta_keyword',
-        'meta_description',
-        'status'
-    ];
+        'meta_description'
 
-    public function products(){
-        return $this->hasMany(Products::class, 'category_id', 'id');
-    }
+    ];
 }

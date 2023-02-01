@@ -14,6 +14,7 @@ use App\Http\Controllers\TyresController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\NewCategoriesController;
+use App\Http\Controllers\ProductController;
 use App\Models\Brand;
 use App\Models\Slider;
 use App\Models\User;
@@ -209,3 +210,12 @@ Route::post('newcat/add', [NewCategoriesController::class, 'AddNewCat'])->name('
 Route::get('/newcat/getNewCat/{id}', [NewCategoriesController::class, 'GetNewCat']);
 Route::post('/newcat/update/{id}', [NewCategoriesController::class, 'UpdateNewCat'])->name('newcat.update');
 Route::get('newcat/delete/{id}', [NewCategoriesController::class, 'DeleteNewCat']);
+
+// ProductsController
+Route::get('/product/all', [ProductController::class, 'AllProduct'])->name('all.product');
+Route::get('/product/new', [ProductController::class, 'NewProduct'])->name('new.product');
+Route::post('product/add', [ProductController::class, 'AddProduct'])->name('product.add');
+Route::get('/product/getNewProd/{id}', [ProductController::class, 'GetNewProd']);
+Route::post('/product/update/{id}', [ProductController::class, 'UpdateProduct'])->name('product.update');
+Route::get('product/delete/{id}', [ProductController::class, 'DeleteProduct']);
+

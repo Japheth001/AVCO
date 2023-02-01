@@ -31,9 +31,9 @@
                         {{ __('   NewTrip  ') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{route('all.tripsheets')}}">
+                    <!-- <x-jet-nav-link href="{{route('all.tripsheets')}}">
                         {{ __('   Expense  ') }}
-                    </x-jet-nav-link>
+                    </x-jet-nav-link> -->
 
                    <!-- <x-jet-nav-link href="{{route('all.category') }}">
                         {{ __(' Menu') }}
@@ -49,6 +49,10 @@
 
                     <x-jet-nav-link href="{{route('view.newcat') }}">
                         {{ __('Categories') }}
+                    </x-jet-nav-link>
+
+                    <x-jet-nav-link href="{{route('new.product') }}">
+                        {{ __('Products') }}
                     </x-jet-nav-link>
 
                     <x-jet-nav-link href="{{route('all.vehicles') }}">

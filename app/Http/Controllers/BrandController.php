@@ -74,6 +74,7 @@ class BrandController extends Controller
 
         Brand::insert([
             'brand_name' => $request->brand_name,
+            'slug' => $request->slug,
             'brand_image' => $last_img,
             'status'=>$request->status==true ? '1':'0',
             'created_at' => Carbon::now(),
@@ -102,7 +103,7 @@ class BrandController extends Controller
         
         Brand::find($id)->update([
             'brand_name' => $request->brand_name,
-           
+            'slug' => $request->slug,
             // 'brand_image' => $last_img,
             'status'=>$request->status==true ? '1':'0',
             'user_id' => Auth::user()->id,

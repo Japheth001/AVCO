@@ -30,6 +30,13 @@
                                             aria-describedby="emailHelp">
                                 </div>
 
+                                <div class="col-md-6 mb-3">
+                                        <label for="exampleInputEmail1">Slug</label>
+                                        <input type="text" class="form-control" value="{{$brands->slug}}"  name="slug" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp">
+                                </div>
+
+
 
                         
                                 <div class="col-md-6 mb-3">

@@ -107,6 +107,7 @@
                                 <tr>
                                 <th scope="col">SL</th>
                                 <th scope="col">Brand Name</th>
+                                <th scope="col">Slug</th>
                                 <th scope="col">Brand Image</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Created At</th>
@@ -122,6 +123,7 @@
         <tr>
         <th scope="row">{{$brands->firstitem()+$loop->index}}</th>
                     <td>{{$brand->brand_name}}</td>
+                    <td>{{$brand->slug}}</td>
                     <!-- <td><img src="{{asset($brand->brand_image)}}"class="img-responsive" alt="" style="width:70px; height:50px"</td> -->
                     <!-- <td><img src="{{URL::asset('/images/brand/'.$brand->brand_name)}}"> -->
                     <td><img src="{{URL::asset('storage/'.$brand->brand_image)}}" class="img-responsive" alt="" style="width:50px; height:50px"/></td>

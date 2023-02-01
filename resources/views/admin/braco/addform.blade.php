@@ -36,7 +36,7 @@
              <!-- <img src="{{ asset('/images/avcotruck.jfif') }}"> -->
           <div class="row">
               <div class="col-md-6">
-              <form action={{route('brand.add')}} method="post" enctype="multipart/form-data">
+              <form action="{{route('brand.add')}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                             <div class="form-group">
                                             <label for="exampleInputEmail1">Add Brand</label>
@@ -49,6 +49,20 @@
                             @error('brand_name')
                             <span class="text-danger">{{$message}}</span>
                             @enderror
+
+
+                            <div class="form-group">
+                                            <label for="exampleInputEmail1">Slug</label>
+                                            <input type="text" class="form-control"  name="slug" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp">
+
+
+                                            </div>
+
+                            @error('slug')
+                            <span class="text-danger">{{$message}}</span>
+                            @enderror
+
 
                             
                             <div class="col-md-6 mb-3">
