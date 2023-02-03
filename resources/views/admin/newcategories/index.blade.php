@@ -130,10 +130,10 @@
 
 
                                 <tbody>
-        <!--@php($i=1)-->
-        @foreach($newcats as $newcat)
-        <tr>
-        <th scope="row">{{$newcats->firstitem()+$loop->index}}</th>
+                    <!--@php($i=1)-->
+                    @foreach($newcats as $newcat)
+                    <tr>
+                    <th scope="row">{{$newcats->firstitem()+$loop->index}}</th>
 
                     <td>{{$newcat->name}}</td>
                     <td>{{$newcat->slug}}</td>
@@ -151,19 +151,19 @@
 
 
 
- <td>
-    <div class="btn-group open">
-  <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i>Action</a>
-  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-    <!-- <span class="fa fa-caret-down" title="Toggle dropdown menu"></span> -->
-  </a>
-  <ul class="dropdown-menu">
-    <li><a href="{{url('/newcat/getNewCat/'.$newcat->id)}}"><i class="fa fa-edit fa-fw"></i> Edit</a></li>
-    <li><a href="{{url('/newcat/delete/'. $newcat->id)}}"><i class="fa fa-trash"></i> Delete</a></li>
+                    <td>
+                        <div class="btn-group open">
+                    <a class="btn btn-primary" href="#"><i class="fa fa-user fa-fw"></i>Action</a>
+                    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+                        <!-- <span class="fa fa-caret-down" title="Toggle dropdown menu"></span> -->
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{url('/newcat/getNewCat/'.$newcat->id)}}"><i class="fa fa-edit fa-fw"></i> Edit</a></li>
+                        <li><a href="{{url('/newcat/delete/'. $newcat->id)}}"><i class="fa fa-trash"></i> Delete</a></li>
 
-    <li class="divider"></li>
+                        <li class="divider"></li>
 
-  </ul>
+                    </ul>
 </div>
 </td>
 

@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\productImage;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Products extends Model
 {
@@ -27,4 +28,8 @@ class Products extends Model
         'meta_description'
 
     ];
+
+    public function productImages(){
+        return $this->hasMany(productImage::class, 'product_id','id');
+    }
 }

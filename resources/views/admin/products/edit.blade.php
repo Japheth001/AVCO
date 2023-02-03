@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="max-height: 7px;">
-           <b>Add Products</b>
+           <b>Edit Products</b>
 
                     <!-- Button trigger modal -->
                 <div>
@@ -51,14 +51,14 @@
                                     <label>Category</label>
                                     <select name="category_id" class="form-control">
                                         @foreach ($categories as $category)
-                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                        <option value="{{$category->id}}"></option>
                                         @endforeach
                                     </select>
                                 </div>
 
                                 <div class="mb-3">
                                     <label>Product Name</label>
-                                    <input type="text" name="name" class="form-control"></input>
+                                    <input type="text" name="name" class="form-control" value="{{$products[8]->name}}"></input>
                                 </div>
 
                                 <div class="mb-3">
@@ -104,7 +104,7 @@
 
                                 <div class="mb-3">
                                     <label>Meta Description</label>
-                                    <textarea name="meta_description" class="form-control" rows="3"></textarea>
+                                    <textarea name="meta_description" class="form-control" rows="3" ></textarea>
                                 </div>
 
 

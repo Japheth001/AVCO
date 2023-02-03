@@ -51,7 +51,7 @@
                         {{ __('Categories') }}
                     </x-jet-nav-link>
 
-                    <x-jet-nav-link href="{{route('new.product') }}">
+                    <x-jet-nav-link href="{{route('all.product') }}">
                         {{ __('Products') }}
                     </x-jet-nav-link>
 
