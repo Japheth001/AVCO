@@ -17,26 +17,27 @@
     </x-slot>
 <br><br>
 
-<form>
+<form action="{{url('/expense/update/'.$expenses->id)}}" method="post" enctype="multipart/form-data">
+     @csrf
   <div class="form-group" style="margin:auto">
     <label for="exampleInputEmail1">Date</label>
-    <input name="" type="date" class="txtbox" placeholder="Date"/>
+    <input name="expensedate" type="date" class="txtbox" placeholder="Date"/>
 
   </div>
   <div class="form-group" style="margin:auto">
     <label for="exampleInputPassword1">Amount</label>
-    <input name="" type="text" class="txtbox" placeholder="Amount"/>
+    <input name="amount" type="text" class="txtbox" placeholder="Amount"/>
   </div>
 
   <div class="form-group" style ="margin:auto">
     <label for="exampleInputPassword1">Location</label>
-    <input name="" type="text" class="txtbox" placeholder="Location"/>
+    <input name="location" type="text" class="txtbox" placeholder="Location"/>
 
   </div>
 
   <div class="form-group">
-            <label for="exampleFormControlTextarea3">Rounded corners</label>
-            <textarea class="form-control" id="exampleFormControlTextarea3" rows="4"></textarea>
+  <label for="exampleInputPassword1">Authority</label>
+    <input name="authority" type="text" class="txtbox" placeholder="Authority"/>
   </div>
 
   <button type="submit" class="btn btn-primary" style="margin-left:630px; margin-top:30px">Submit</button>

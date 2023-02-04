@@ -8,7 +8,7 @@
 
                     <!-- Button trigger modal -->
                 <div>
-                    <button type="button" style="background-color: #6666ff; margin-left: 1200px; margin-top:-55px;" class="btn btn-primary"> <a href="{{route('form.mantain')}}"/>
+                    <button type="button" style="background-color: #6666ff; margin-left: 1200px; margin-top:-35px;" class="btn btn-primary"> <a href="{{route('form.mantain')}}"/>
                     <i class="fa-regular fa-square-plus"/></i></a>
                     </button>
                 </div>
