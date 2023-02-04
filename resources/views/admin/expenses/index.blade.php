@@ -23,7 +23,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>File Expense</title>
             <link rel="stylesheet" href="{{asset('forme/style.css')}}">
-        
+
         </head>
 
         <body>
@@ -59,10 +59,11 @@
                             </div>
 
                             <div class="inputBx">
-                                <button type="submit">Submit</button>
+                                <span></span>
+                                <input type="submit"></button>
                             </div>
 
-                        
+
 
                         </form>
                     </div>
