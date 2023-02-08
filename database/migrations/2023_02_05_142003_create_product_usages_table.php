@@ -21,7 +21,6 @@ return new class extends Migration
             $table->foreign('productId')->references('id')->on('products');
             $table->unsignedBigInteger('userIdUpdated')->nullable();
             $table->foreign('userIdUpdated')->references('id')->on('users'); 
-
             $table->longText('description', 10000)->nullable();
             $table->timestamps();   
         });

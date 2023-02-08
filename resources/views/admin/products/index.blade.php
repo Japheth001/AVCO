@@ -159,7 +159,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="{{url('/product/getNewProd/'.$product->id)}}"><i class="fa fa-edit fa-fw"></i> Edit</a></li>
                         <li><a href="{{url('/product/quantity/'. $product->id)}}"><i class="fa fa-sort-amount-up"></i> Quantity updates</a></li>
-                        <li><a href="{{url('/product/usage/'. $product->id)}}"><i class="fa fa-car"></i> Usage history</a></li>
+                        <li><a href="{{url('/product/usage/all/'. $product->id)}}"><i class="fa fa-car"></i> Usage history</a></li>
                         <li><a href="{{url('/product/delete/'. $product->id)}}"><i class="fa fa-trash"></i> Delete</a></li>
                         <li class="divider"></li>
 

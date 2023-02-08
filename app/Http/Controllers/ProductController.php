@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Carbon\Carbon;
 use App\Models\Brand;
+use App\Models\Vehicle;
 use App\Models\Products;
 use App\Models\NewCatModel;
-use App\Models\ProductQuantityUpdate;
 use Illuminate\Support\Str;
+use App\Models\ProductUsage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProductRequest;
+use App\Models\ProductQuantityUpdate;
 use Intervention\Image\Facades\Image;
 
 class ProductController extends Controller
@@ -146,22 +148,56 @@ class ProductController extends Controller
             'productId' => $request->productId,
             'userIdUpdated' => $user->id,
         ]);
+
+        // Update product quantity
+        $product = Products::where('id', $request->productId)->first();
+        $product->quantity = $product->quantity + $request->quantity;
+        $product->save();   
+
         $request->session()->flash('success', 'Product quantity updated successfully');
         return redirect()->route('product.quantity.all', ['id' => $request->productId]);
     }
 
     public function productUsage(){
-        $brands = Brand::all();
-        $categories = NewCatModel::all();
-        $products = Products::latest()->paginate(4);
-        return view('admin.products.usage', compact('products', 'categories', 'brands'));
+        $id = request()->route('id');
+        $product = Products::where('id', $id)->first();
+
+        $productQuantityUpdates = ProductUsage::where('productId', $id)
+            ->join('users', 'users.id', '=', 'product_usages.userIdUpdated')
+            ->join('vehicles', 'vehicles.id', '=', 'product_usages.vehicleId')
+            ->select('product_usages.*', 'users.name as userName', 'vehicles.number_plate as vehicleNumber')
+            ->get();
+
+        return view('admin.products.usage', compact('productQuantityUpdates', 'product'));
     }
 
     public function productUsageNew(){
-        $brands = Brand::all();
-        $categories = NewCatModel::all();
-        $products = Products::all();
-        return view('admin.products.usageNew', compact('products', 'categories', 'brands'));
+        $id = request()->route('id');
+        $vehicles = Vehicle::all();
+        return view ('admin.products.usageNew', compact('vehicles'))->with('id', $id);
     }
 
+    public function saveProductUsage(Request $request){
+        $request->validate([
+            'quantity' => 'required',
+            'vehicleId' => 'required',
+        ],[
+            'vehicleId.required' => 'Please select a vehicle'
+        ]);
+        $user = Auth::user();
+        $result=ProductUsage::create([
+            'quantity' => $request->quantity,
+            'vehicleId' => $request->vehicleId,
+            'productId' => $request->productId,
+            'userIdUpdated' => $user->id,
+            'description' => $request->description ?? '',
+        ]);
+        // Update product quantity
+        $product = Products::where('id', $request->productId)->first();
+        $product->quantity = $product->quantity - $request->quantity;
+        $product->save();
+
+        $request->session()->flash('success', 'Product usage updated successfully');
+        return redirect()->route('product.usage.all', ['id' => $request->productId]);
+    }
 }
