@@ -144,7 +144,7 @@
                             <span style="color:orange;">{{$product->quantity}}</span>
                         @else
                             {{$product->quantity}}
-                        @endif                   
+                        @endif                  
                     
                     </td>
                     {{-- <td>{{$product->slug}}</td> --}}

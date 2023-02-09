@@ -4,7 +4,7 @@
            <b>Product quantity history</b>
             <!-- Button trigger modal -->
             <div>
-                <button type="button" style="background-color: #6666ff; margin-left: 1195px; margin-top:-65px;" class="btn btn-primary"> <a href="{{route('product.quantity.new', ["id"=>1])}}"/>
+                <button type="button" style="background-color: #6666ff; margin-left: 1195px; margin-top:-65px;" class="btn btn-primary"> <a href="{{route('product.quantity.new', ["id"=>$id])}}"/>
                 <i class="fa-regular fa-square-plus"/></i></a>
                 </button>
             </div>
@@ -27,7 +27,18 @@
                                 {{ session('success') }}
                             </div>
                         @endif
-                        <div class= "card-header">`{{$product->name}}` quantity update</div>
+                        <div class= "card-header">
+                            <a href="{{route('all.product')}}" class="btn btn-primary">
+                                <i class="fa-regular fa-arrow-alt-circle-left"></i>&nbsp Back
+                            </a>
+                        </div>
+                        <div class= "card-header">
+                            <a href="{{route('all.product')}}">Products</a> 
+                                > 
+                            <a href="{{route('product.quantity.all', ["id"=>$id])}}">Quantity History</a > 
+                                > 
+                            {{ $product->name }}
+                        </div>
                         <table class="table">
                             <thead>
                                 <tr>

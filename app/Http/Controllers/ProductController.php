@@ -129,7 +129,7 @@ class ProductController extends Controller
             ->select('product_quantity_updates.*', 'users.name as userName')
             ->get();
 
-        return view('admin.products.quantity', compact('productQuantityUpdates', 'product'));
+        return view('admin.products.quantity', compact('productQuantityUpdates', 'product'))->with('id', $id);
     }
 
     public function productQuantityNew($id){
@@ -168,13 +168,14 @@ class ProductController extends Controller
             ->select('product_usages.*', 'users.name as userName', 'vehicles.number_plate as vehicleNumber')
             ->get();
 
-        return view('admin.products.usage', compact('productQuantityUpdates', 'product'));
+        return view('admin.products.usage', compact('productQuantityUpdates', 'product'))->with('id', $id);
     }
 
     public function productUsageNew(){
         $id = request()->route('id');
         $vehicles = Vehicle::all();
-        return view ('admin.products.usageNew', compact('vehicles'))->with('id', $id);
+        $product = Products::where('id', $id)->first();
+        return view ('admin.products.usageNew', compact('vehicles','product'))->with('id', $id);
     }
 
     public function saveProductUsage(Request $request){
@@ -182,8 +183,15 @@ class ProductController extends Controller
             'quantity' => 'required',
             'vehicleId' => 'required',
         ],[
-            'vehicleId.required' => 'Please select a vehicle'
+            'vehicleId.required' => 'Please select a vehicle',
+            'quantity.integer' => 'Quantity should be an integer',
         ]);
+        $product = Products::where('id', $request->productId)->first();
+        if($product->quantity < $request->quantity){
+            $request->session()->flash('error', 'Product quantity is less than the usage quantity');
+            return redirect()->route('product.usage.new', ['id' => $request->productId]);
+        }
+
         $user = Auth::user();
         $result=ProductUsage::create([
             'quantity' => $request->quantity,
@@ -193,7 +201,7 @@ class ProductController extends Controller
             'description' => $request->description ?? '',
         ]);
         // Update product quantity
-        $product = Products::where('id', $request->productId)->first();
+        
         $product->quantity = $product->quantity - $request->quantity;
         $product->save();
 

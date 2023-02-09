@@ -7,8 +7,13 @@
         <div class="row" style="width:100%">
             <div class="col-lg-7" style ="margin:auto; margin-top:30px;">
                 <div class="card">
+                    <div class= "card-header">
+                        <a href="{{route('product.usage.all', ["id"=>$id])}}" class="btn btn-primary">
+                            <i class="fa-regular fa-arrow-alt-circle-left"></i>&nbsp Back
+                        </a>
+                    </div>
                     <div class="card-header">
-                        <h3 class="card-title">New product usage</h3></div>
+                        <h3 class="card-title">New product usage for `{{$product->name}}`</h3></div>
                     <div class="card-body" >
                     @error('vehicleId')
                         <p class="alert alert-danger">{{ $message }}</p>
@@ -16,6 +21,9 @@
                     @error('quantity')
                         <p class="alert alert-danger">{{ $message }}</p>
                     @enderror
+                    @if(session('error'))
+                        <p class="alert alert-danger">{{session('error')}}</p>
+                    @endif
                     <form action="{{route('product.usage.save')}}" method="post" enctype="multipart/form-data">
                         @csrf                         
                         <div class ="form-inline">
