@@ -137,7 +137,16 @@
                     <th scope="row">{{$products->firstitem()+$loop->index}}</th>
 
                     <td>{{$product->name}}</td>
-                    <td>{{$product->quantity}}</td>
+                    <td>
+                        @if($product->quantity < 5)
+                            <span style="color:red;">{{$product->quantity}}</span>
+                        @elseif($product->quantity < 10)
+                            <span style="color:orange;">{{$product->quantity}}</span>
+                        @else
+                            {{$product->quantity}}
+                        @endif                   
+                    
+                    </td>
                     {{-- <td>{{$product->slug}}</td> --}}
                     <td>{{$product->small_description}}</td>
                     
