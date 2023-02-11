@@ -1,20 +1,21 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BatteryController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\FuelController;
 use App\Http\Controllers\MaintenanceController;
+use App\Http\Controllers\NewCategoriesController;
 use App\Http\Controllers\NTripSheet;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\TripController;
 use App\Http\Controllers\TyresController;
 use App\Http\Controllers\VehicleController;
-use App\Http\Controllers\ExpenseController;
-use App\Http\Controllers\NewCategoriesController;
-use App\Http\Controllers\ProductController;
 use App\Models\Brand;
 use App\Models\Slider;
 use App\Models\User;
@@ -121,13 +122,22 @@ Route::get('/tyres/tdashboard', [TyresController::class, 'AllTyreDash'])->name('
 Route::get('/tyres/issuedash', [TyresController::class, 'IssueTyreDas'])->name('issued.tyre');
 Route::get('/tyres/all', [TyresController::class, 'AllTyres'])->name('all.tyre');
 Route::post('tyres/add', [TyresController::class, 'TyreAdd'])->name('tyre.add');
+Route::get('tyres/add2', [TyresController::class, 'TyreAdd2'])->name('tyre.add2');
 Route::get('/tyre/edit/{id}', [TyresController::class, 'EditTyre']);
 Route::post('tyre/update/{id}', [TyresController::class, 'UpdateTyre']);
 Route::get('tyre/delete/{id}', [TyresController::class, 'DeleteTyre']);
 
+//Tyres Isssue
+Route::get('tyres/allissue', [TyresController::class, 'TyresAllIssue'])->name('tyre.allissue');
+Route::get('tyres/editissue/{id}', [TyresController::class, 'TyresEditIssue'])->name('tyre.editissue');
+
 //Manage Tyres
 Route::get('tyre/manage/{id}', [TyresController::class, 'ManageTyres']);
 Route::post('tyre/issue/{id}', [TyresController::class, 'IssueTyre']);
+Route::post('tyre/issueupdate/{id}', [TyresController::class, 'IssueTyreUpdate']);
+
+//Store Tyres
+Route::get('tyres/allstore', [TyresController::class, 'StoreTyres'])->name('tyre.allstore');
 
 //Trip Sheet
 Route::get('/trip/all', [TripController::class, 'AllTrip'])->name('all.trip');
@@ -198,10 +208,9 @@ Route::get('ntripsheet/delete/{id}', [NTripSheet::class, 'DeleteTrip']);
 Route::get('/expense/all', [ExpenseController::class, 'AllExpense'])->name('all.expense');
 Route::get('/expense/new', [ExpenseController::class, 'ViewExpense'])->name('view.expense');
 Route::post('expense/add', [ExpenseController::class, 'AddExpense'])->name('expense.add');
-Route::get('/expense/getExpense/{id}', [ExpenseController::class, 'GetExpense']);
+Route::get('/expense/getExpense/{id}', [ExpenseController::class, 'GetExpense'])->name('file.expense');
 Route::post('/expense/update/{id}', [ExpenseController::class, 'UpdateExpense'])->name('expense.update');
 Route::get('expense/delete/{id}', [ExpenseController::class, 'DeleteExpense']);
-
 
 // NewCategoriesController
 Route::get('/newcat/all', [NewCategoriesController::class, 'AllNewCat'])->name('all.newcat');
@@ -219,3 +228,11 @@ Route::get('/product/getNewProd/{id}', [ProductController::class, 'GetNewProd'])
 Route::post('/product/update/{id}', [ProductController::class, 'UpdateProduct'])->name('product.update');
 Route::get('product/delete/{id}', [ProductController::class, 'DeleteProduct']);
 
+// BatteryController
+Route::get('/battery/all', [BatteryController::class, 'AllBattery'])->name('all.battery');
+Route::get('/battery/new', [BatteryController::class, 'NewBattery'])->name('new.battery');
+Route::post('battery/add', [BatteryController::class, 'AddBattery'])->name('battery.add');
+Route::post('battery/adds', [BatteryController::class, 'AddsBattery'])->name('battery.adds');
+Route::get('/battery/getNewBat/{id}', [BatteryController::class, 'GetNewBattery']);
+Route::post('/battery/update/{id}', [BatteryController::class, 'UpdateBattery'])->name('battery.update');
+Route::get('battery/delete/{id}', [BatteryController::class, 'DeleteBattery']);

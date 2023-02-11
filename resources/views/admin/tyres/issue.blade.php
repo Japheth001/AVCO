@@ -2,6 +2,12 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
            <b>Issue Tyre</b>
+
+           <div>
+                    <button type="button" style="background-color: #6666ff; margin-left: 1195px; margin-top:-35px; height:30px" class="btn btn-primary"> <a href="{{route('tyre.allissue')}}"/>
+                    <i class="fa-thin fa-arrow-left"/></i></a>
+                    </button>
+                </div>
         </h2>
 
 

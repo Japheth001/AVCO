@@ -52,7 +52,7 @@
 
 																					</select>
 																	</div>
-															</div>
+												</div>
 
 											<div class="form-group" style="width:80%">
 														<label for="exampleFormControlTextarea3">Approve Comments</label>

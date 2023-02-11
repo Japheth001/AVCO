@@ -29,7 +29,7 @@
 
                         <div class="col-md-6">
                         <label for="inputEmail4" class="form-label">Trailer No:</label>
-                        <input type="text" class="form-control" id="truck_no" name="truck_no" value={{$fuels->truck_no}}>
+                        <input type="text" class="form-control" id="truck_no" name="truck_no" value="{{$fuels->truck_no}}">
                         </div>
 
                         @error('trailer')

@@ -1,15 +1,22 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="max-height: 5px;">
            <b>All Tyres</b>
 
-
+  
 
 
                     <!-- Button trigger modal -->
-<button type="button" style="width:230px; background-color:#9999ff; margin-left: 400px;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<!-- <button type="button" style="width:230px; background-color:#9999ff; margin-left: 400px;  margin-top:45px;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Click to Register New Tyre
-</button>
+</button> -->
+
+
+                    <button type="button" style="background-color: #6666ff; margin-left: 1200px; margin-top:-35px;" class="btn btn-primary"> <a href="{{route('tyre.add2')}}"/>
+                    <i class="fa-regular fa-square-plus"/></i></a>
+                    </button>
+                
+
 
 <!-- Modal -->
 <div  class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -27,7 +34,7 @@
 
 
                     <div class="card-body">
-                    <form action={{route('tyre.add')}} method="post">
+                    <form action="{{route('tyre.add')}}" method="post">
                                     @csrf
                                     <div class="form-group">
                                             <label for="exampleInputEmail1" style="font-size:16px">Front|Back</label>
@@ -85,18 +92,18 @@
 <!--------------------------------------------------------------------------------------------------------->
 
                             <div class="form-group">
-                                            <label for="exampleInputEmail1" style="font-size:16px">Status</label>
+                                          <label for="exampleInputEmail1" style="font-size:16px">Status</label>
 
                                             <div class="custom-selects" style="width: 200px; font-size: 12.5px;">
-						<select name="status" size="1">
-						        <option value="Yet Issued">Yet Issued</option>
-						        <option value="Issued">Issued</option>
-						        <option value="Defective">Defective</option>
+                                                  <select name="status" size="1">
+                                                          <option value="Yet Issued">Yet Issued</option>
+                                                          <option value="Issued">Issued</option>
+                                                          <option value="Defective">Defective</option>
 
-						</select>
-						</div>
+                                                  </select>
+						                                </div>
 
-                                            </div>
+                            </div>
 
 
                             @error('status')
@@ -132,7 +139,9 @@
 
     </x-slot>
 
-    <br>
+    <script src="{{asset('dist/assets/sweetalert2.min.js')}}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" -->
 
     <div class="py-14">
 
@@ -142,14 +151,57 @@
                     <div class ="card">
 
                     @if(session('success'))
+<!--
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            <strong>{{session('success')}}</strong> -->
+                                <div>
+                                           <script>
+                                                        Swal.fire(
+                                                            'Record Added Successfully!',
+                                                            'You clicked the button!',
+                                                            'success'
+                                            );
+                                            </script>
 
-                    <div class="alert alert-success alert-dismissible fade show" role="alert">
-  <strong>{{session('success')}}</strong>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-  <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-                    @endif
+                                </div>
+                            @endif
+
+
+                            @if(session('delete'))
+
+<!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{session('delete')}}</strong> -->
+    <div>
+            <script>
+                         Swal.fire(
+                    'Record Deleted Successfully!',
+                    'You clicked the button!',
+                    'delete'
+    );
+            </script>
+
+<!-- // </div> -->
+@endif
+
+
+
+
+                            @if(session('update'))
+<!--
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            <strong>{{session('success')}}</strong> -->
+                                <div>
+                                           <script>
+                                                        Swal.fire(
+                                                            'Record Updated Successfully!',
+                                                            'You clicked the button!',
+                                                            'success'
+                                            );
+                                            </script>
+
+                                </div>
+                            @endif
+
 
 
 
@@ -159,12 +211,18 @@
                         <table class="table">
                                 <thead>
                                 <tr>
+
                                 <th scope="col">SL</th>
+                                <th scope="col">User</th>
+                                <th scope="col">Serial No</th>  
+                                <th scope="col">Make</th>    
+                                <th scope="col">Size</th> 
+                                <!-- <th scope="col">Truck</th>                          -->
                                 <th scope="col">Front|Back</th>
 
-                                <th scope="col">Serial No</th>
-                                <th scope="col">Size</th>
-                                <th scope="col">Manufacturer</th>
+                                
+                                
+                                
                                 <th scope="col">Status</th>
                                 <th scope="col">Created At</th>
                                 <th scope="col">Action</th>
@@ -178,15 +236,19 @@
         @foreach($tyres as $tyre)
         <tr>
         <th scope="row">{{$tyres->firstitem()+$loop->index}}</th>
-                    <td>{{$tyre->front_or_back_tyre}}</td>
+                    <td>{{$tyre->user->name}}</td>
                     <td>{{$tyre->tyre_serial}}</td>
-                    <td>{{$tyre->size}}</td>
                     <td>{{$tyre->manufacturer}}</td>
+                    <td>{{$tyre->size}}</td>
+
+                    <td>{{$tyre->front_or_back_tyre}}</td>
+                    
+                    
                     <td>{{$tyre->status}}</td>
                     <td>{{$tyre->created_at}}</td>
                     <td><a href="{{url('tyre/edit/'.$tyre->id)}}"<span style="width:70px" class="btn btn-info">Edit</span></td>
                     <td><a href="{{url('tyre/delete/'. $tyre->id)}}"<span class="btn btn-danger">Delete</span></td>
-                    <td><a href="{{url('tyre/manage/'. $tyre->id)}}"<span class="btn btn-danger">Manage</span></td>
+                    <!-- <td><a href="{{url('tyre/manage/'. $tyre->id)}}"<span class="btn btn-danger">Manage</span></td> -->
         </tr>
         @endforeach
                                 </tbody>
@@ -224,7 +286,7 @@
 
 
 
-        <br>
+        
 
       <!--<td><img src="{{asset('image/gif/gif Lorry.gif')}}"class="img-responsive" alt="" style="width:150px; height:58px; margin-left:620px"</td>
 -->

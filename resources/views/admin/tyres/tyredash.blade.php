@@ -6,7 +6,7 @@
            <!-- <b>All mantain Records</b> -->
 
 
-           <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <link rel="stylesheet"  href="{{asset('awoza/style.css')}}">
     <!-- <script src="{{asset('awoza/js/jquery.js')}}"'></script>
     <script src="{{asset('awoza/js/jquery-ui.js')}}"></script>
@@ -41,41 +41,51 @@
                   <div class="profile" >
                     
                   <div id="cbtn1">
-                  <i style="font-size:35px" <i style="color:black" class="fa-sharp fa-tire blackiconcolor"><a style="text-decoration: none; background-color: transparent;" href="{{route('all.tyre')}}" </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
+                  <i style="font-size:35px" <i style="color:black" class="fa-thin fa-tire blackiconcolor">
+                  <a style="text-decoration: none; background-color: transparent;" href="{{route('all.tyre')}}" </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
                     </div>
                       <!-- <img src="images/me2.jpg" class="user"> -->
                       
                       <!-- <blockquote>I</blockquote> -->
-                      <h3><span>NEW TYRES</span></h3>
+                      <h3><span>NEW TYRE</span></h3>
                   </div>
               </div>
 
 
 
-              <div class="col-md-3 text-center">
-                <div class="profile">
-                    <!-- <img src="images/logo22.jpg" class="user"> -->
-                    <i style="font-size:35px" class="fa-solid fa-hand-holding-hand"></i>
-                    <!-- <blockquote>Tore.</blockquote> -->
-                    <a href="{{route('issued.tyre')}}"<h3><span>ISSUED TO TRUCKS</span></h3></a>
-                </div>
-            </div>
 
+            <div class="col-md-3 text-center">
+              <div class="profile">
+
+              <div id="cbtn1">
+                  <i style="font-size:35px" <i style="color:black" class="fa-thin fa-truck-moving">
+                  <a style="text-decoration: none; background-color: transparent;" href="{{route('tyre.allissue')}}" </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
+                    </div>
+                  <!-- <img src="images/logo16.jpg" class="user"> -->
+                  <!-- <i style="font-size:35px" class="fa-thin fa-truck-moving"></i> -->
+                  
+                  <!-- <blockquote>It</blockquote> -->
+                  
+                  <h3><span>ISSUE TYRE</span></h3>
+              </div>
+          </div>
 
 
             <div class="col-md-3 text-center">
               <div class="profile">
                   <!-- <img src="images/logo16.jpg" class="user"> -->
-                  <i style="font-size:35px" class="fa-solid fa-store"></i>
+                  <i style="font-size:35px" class="fa-thin fa-store"></i>
+                  <a style="text-decoration: none; background-color: transparent;" href="{{route('tyre.allstore')}}" 
+                </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
                   <!-- <blockquote>It</blockquote> -->
-                  <h3><span>ALLOCATED TO STORE</span></h3>
+                  <h3><span>ALLOCATE TO STORE</span></h3>
               </div>
           </div>
 
           <div class="col-md-3 text-center">
               <div class="profile">
                   <!-- <img src="images/logo16.jpg" class="user"> -->
-                  <i style="font-size:35px" class="fa-solid fa-screwdriver-wrench"></i>
+                  <i style="font-size:35px" class="fa-thin fa-screwdriver-wrench"></i>
                   <!-- <blockquote>I </blockquote> -->
                   <h3><span>TYRES TO RETRAY</span></h3>
               </div>
@@ -84,19 +94,34 @@
           <div class="col-md-3 text-center" class="row" style="margin-Top:20px;">
               <div class="profile">
                   <!-- <img src="images/logo16.jpg" class="user"> -->
-                  <i style="font-size:35px" class="fa-duotone fa-tire-flat"></i>
+                  <i style="font-size:35px" class="fa-thin fa-tire-flat"></i>
                   <!-- <blockquote>t</blockquote> -->
                   <h3><span>DEFECTED TYRES</span></h3>
+              </div>
+          </div>
+
+        <br>
+          <div class="col-md-3 text-center" class="row" style="margin-Top:20px;">
+              <div class="profile">
+                  <!-- <img src="images/logo16.jpg" class="user"> -->
+                  <i style="font-size:35px" class="fa-thin fa-tire-rugged"></i>
+                  <!-- <blockquote>t</blockquote> -->
+                  <h3><span>TYRES FROM RETRAY</span></h3>
               </div>
           </div>
 
 
           <div class="col-md-3 text-center" class="row" style="margin-Top:20px;">
               <div class="profile">
+
+              <div id="cbtn1">
+                  <i style="font-size:35px" <i style="color:black" class="fa-thin fa-car-battery"><a style="text-decoration: none; background-color: transparent;" href="{{route('new.battery')}}" </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
+                    </div>
                   <!-- <img src="images/logo16.jpg" class="user"> -->
-                  <i style="font-size:35px" class="fa-duotone fa-tire-rugged"></i>
+                  <!-- <i style="font-size:35px" class="fa-thin fa-car-battery"></i> -->
+          
                   <!-- <blockquote>t</blockquote> -->
-                  <h3><span>TYRES FROM RETRAY</span></h3>
+                  <h3><span>BATTERY MASTER</span></h3>
               </div>
           </div>
 

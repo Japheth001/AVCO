@@ -1,12 +1,12 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="max-height: 7px;">
-           <b>Fill Expense</b>
+           <b> Expense</b>
 
 
                        <!-- Button trigger modal -->
                 <div>
-                    <button type="button" style="background-color: #6666ff; margin-left: 1200px; margin-top:-35px;" class="btn btn-primary"> <a href="{{route('all.tripsheets')}}"/>
+                    <button type="button" style="background-color: #6666ff; margin-left: 1200px; margin-top:-75px;" class="btn btn-primary"> <a href="{{route('all.mantain')}}"/>
                     <i class="fa-regular fa-square-plus"/></i></a>
                     </button>
                 </div>
@@ -15,43 +15,64 @@
 
 
     </x-slot>
-<br><br>
 
-<form action="{{url('/expense/update/'.$expenses->id)}}" method="post" enctype="multipart/form-data">
-     @csrf
-  <div class="form-group" style="margin:auto">
-    <label for="exampleInputEmail1">Date</label>
-    <input name="expensedate" type="date" class="txtbox" placeholder="Date"/>
+    <!Doctype html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>File Expense</title>
+            <link rel="stylesheet" href="{{asset('forme/style.css')}}">
 
-  </div>
-  <div class="form-group" style="margin:auto">
-    <label for="exampleInputPassword1">Amount</label>
-    <input name="amount" type="text" class="txtbox" placeholder="Amount"/>
-  </div>
+        </head>
 
-  <div class="form-group" style ="margin:auto">
-    <label for="exampleInputPassword1">Location</label>
-    <input name="location" type="text" class="txtbox" placeholder="Location"/>
+        <body>
+            <section>
+                <div class="imgBx">
+                    <img src="{{asset('forme/images/art3.jpg')}}">
+                </div>
 
-  </div>
+                <div class="contentBx">
+                    <div class="formBx">
+                        <h2>File Expense</h2>
 
-  <div class="form-group">
-  <label for="exampleInputPassword1">Authority</label>
-    <input name="authority" type="text" class="txtbox" placeholder="Authority"/>
-  </div>
+                        <form action="{{url('/expense/update/'.$expenses->id)}}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="inputBx">
+                                <span>Date</span>
+                                <input name="expensedate" type="date" class="txtbox" placeholder="Date"/>
+                            </div>
 
-  <button type="submit" class="btn btn-primary" style="margin-left:630px; margin-top:30px">Submit</button>
-</form>
+                            <div class="inputBx">
+                                <span>Amount</span>
+                                <input name="amount" type="text" class="txtbox" placeholder="Amount"/>
+                            </div>
 
-<style>
-    .form-group {
-        width:40%;
-        margin:auto;
-        margin-Top:60px;
-    }
-</style>
+                            <div class="inputBx">
+                                <span>Location</span>
+                                <input name="location" type="text" class="txtbox" placeholder="Location"/>
+                            </div>
+
+                            <div class="inputBx">
+                                <span>Authority</span>
+                                <input name="authority" type="text" class="txtbox" placeholder="Authority"/>
+                            </div>
+
+                            <div class="inputBx">
+                                <span></span>
+                                <input type="submit"></button>
+                            </div>
 
 
+
+                        </form>
+                    </div>
+
+                </div>
+            </section>
+        </body>
+
+    </html>
 
 
     </x-app-layout>

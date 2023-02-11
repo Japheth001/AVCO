@@ -1,0 +1,213 @@
+/* Global Styles */
+:root {
+    --primary-color: rgb(32, 158, 27);
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+   
+}
+
+body {
+    font-family: monospace, 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+    display: block;
+    place-items: center;
+    min-height: 70vh;
+    justify-content: space-between;
+    /* display: flex; */
+    flex-direction: column;
+    
+   
+   
+}
+input {
+    display: block;
+    width: 100%;
+    
+    padding: 0.15rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    
+}
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Styles for Basic items's Next Button. */
+.width-50 {
+    width: 50%;
+}
+.ml-auto {
+    margin-left: auto;
+}
+/* Styles for h2 & Credit Link. */
+.text-center, .text-center a {
+    text-decoration: none;
+    text-align: center;
+}
+.text-center a {
+    text-decoration: none;
+    font-size: 12px;
+}
+
+/* Styles for Progress Bar */
+.progressbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    counter-reset: step;
+    margin: 2rem 0 4rem;
+}
+.progressbar::before, .progress {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(410%);
+    height: 4px;
+    width: 100%;
+    background-color: #dcdcdc;
+    z-index: 0;
+}
+.progress {
+    background-color: var(--primary-color);
+    width: 0%;
+    transition: 0.3s;
+    z-index: 0;
+}
+
+.progress-step {
+    width: 2.1875rem;
+    height: 2.1875rem;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-step::before {
+    counter-increment: step;
+    content: counter(step);
+}
+.progress-step::after {
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    font-size: 0.85rem;
+    color: #666;
+}
+.progress-step-active {
+    background-color: var(--primary-color);
+    color: #f3f3f3;
+}
+
+/* Styles for Form. */
+.form {
+    width: 30rem;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 0.35rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top:10px;
+    margin-bottom: -10px;
+}
+
+/* Styles for input group. */
+.input-group {
+    margin: 1rem 0;
+}
+.form-step {
+    display: none;
+    transform-origin: top;
+    animation: animate 0.5s;
+}
+@keyframes animate {
+    from {
+        transform: scale(1, 0);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+}
+.form-step-active {
+    display: block;
+}
+
+/* Styles for Next and Back Button. */
+.btns-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.btn{
+    padding:  0.45rem;
+    display: block;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
+}
+
+
+/* Social Credit Styles */
+.social_media_div{
+    position: fixed;
+    left: 0;
+    bottom: 20px;
+}
+.social_media_div li{
+    list-style: none;
+    margin-bottom: 20px;
+    background-color: #fff;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    transition: all 0.4s;
+    font-size: 20px;
+}
+.social_media_div li a {
+    text-decoration: none;
+}
+.social_media_div li a i {
+    color: black;
+    width: 2.1875rem;
+    height: 2.1875rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.12);
+}
+  
+.social_media_div li:hover{
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -ms--transform: rotate(360deg);
+    transform: rotate(360deg);
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+/* Responsive Style */
+@media (max-width: 850px) {
+    .form {
+        width: 100vw;
+    }
+}

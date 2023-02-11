@@ -20,6 +20,7 @@ class NTripSheet extends Controller
     public function AllTripSheet()
     {
         $trips = NTrip::all();
+        // return view('admin.tripsheet.add2', compact('trips'));
         return view('admin.tripsheet.add', compact('trips'));
     }
 
