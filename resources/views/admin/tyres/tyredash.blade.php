@@ -39,13 +39,13 @@
           <div class="row">
               <div class="col-md-3 text-center">
                   <div class="profile" >
-                    
+
                   <div id="cbtn1">
                   <i style="font-size:35px" <i style="color:black" class="fa-thin fa-tire blackiconcolor">
                   <a style="text-decoration: none; background-color: transparent;" href="{{route('all.tyre')}}" </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
                     </div>
                       <!-- <img src="images/me2.jpg" class="user"> -->
-                      
+
                       <!-- <blockquote>I</blockquote> -->
                       <h3><span>NEW TYRE</span></h3>
                   </div>
@@ -63,9 +63,9 @@
                     </div>
                   <!-- <img src="images/logo16.jpg" class="user"> -->
                   <!-- <i style="font-size:35px" class="fa-thin fa-truck-moving"></i> -->
-                  
+
                   <!-- <blockquote>It</blockquote> -->
-                  
+
                   <h3><span>ISSUE TYRE</span></h3>
               </div>
           </div>
@@ -75,7 +75,7 @@
               <div class="profile">
                   <!-- <img src="images/logo16.jpg" class="user"> -->
                   <i style="font-size:35px" class="fa-thin fa-store"></i>
-                  <a style="text-decoration: none; background-color: transparent;" href="{{route('tyre.allstore')}}" 
+                  <a style="text-decoration: none; background-color: transparent;" href="{{route('tyre.allstore')}}"
                 </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
                   <!-- <blockquote>It</blockquote> -->
                   <h3><span>ALLOCATE TO STORE</span></h3>
@@ -86,29 +86,26 @@
               <div class="profile">
                   <!-- <img src="images/logo16.jpg" class="user"> -->
                   <i style="font-size:35px" class="fa-thin fa-screwdriver-wrench"></i>
+                  <a style="text-decoration: none; background-color: transparent;" href="{{route('tyre.allretray')}}"
+                </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
                   <!-- <blockquote>I </blockquote> -->
                   <h3><span>TYRES TO RETRAY</span></h3>
               </div>
           </div>
-            
+
           <div class="col-md-3 text-center" class="row" style="margin-Top:20px;">
               <div class="profile">
                   <!-- <img src="images/logo16.jpg" class="user"> -->
                   <i style="font-size:35px" class="fa-thin fa-tire-flat"></i>
+                  <a style="text-decoration: none; background-color: transparent;" href="{{route('tyre.alldefected')}}"
+                </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
                   <!-- <blockquote>t</blockquote> -->
                   <h3><span>DEFECTED TYRES</span></h3>
               </div>
           </div>
 
         <br>
-          <div class="col-md-3 text-center" class="row" style="margin-Top:20px;">
-              <div class="profile">
-                  <!-- <img src="images/logo16.jpg" class="user"> -->
-                  <i style="font-size:35px" class="fa-thin fa-tire-rugged"></i>
-                  <!-- <blockquote>t</blockquote> -->
-                  <h3><span>TYRES FROM RETRAY</span></h3>
-              </div>
-          </div>
+
 
 
           <div class="col-md-3 text-center" class="row" style="margin-Top:20px;">
@@ -119,7 +116,7 @@
                     </div>
                   <!-- <img src="images/logo16.jpg" class="user"> -->
                   <!-- <i style="font-size:35px" class="fa-thin fa-car-battery"></i> -->
-          
+
                   <!-- <blockquote>t</blockquote> -->
                   <h3><span>BATTERY MASTER</span></h3>
               </div>
@@ -130,15 +127,15 @@
     </section>
 
 
-    
+
     <!-- @php ($i=1)
     @foreach($tyres as $tyre)
     <tr>
       <th scope="row">{{$i++}}</th>
       <!-- <td>{{ $tyre->status}}</td> -->
-          
+
     <!-- </tr>
-   <!-- @endforeach --> 
+   <!-- @endforeach -->
 
 
 
@@ -175,7 +172,7 @@
 
 
 
-      
+
 
 
     </div>

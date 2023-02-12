@@ -138,6 +138,18 @@ Route::post('tyre/issueupdate/{id}', [TyresController::class, 'IssueTyreUpdate']
 
 //Store Tyres
 Route::get('tyres/allstore', [TyresController::class, 'StoreTyres'])->name('tyre.allstore');
+Route::get('tyres/store/{id}', [TyresController::class, 'Store'])->name('tyre.store');
+Route::post('tyres/storepost/{id}', [TyresController::class, 'StorePost'])->name('tyre.storepost');
+
+//Retray Tyres
+Route::get('tyres/allretray', [TyresController::class, 'RetrayTyres'])->name('tyre.allretray');
+Route::get('tyres/retray/{id}', [TyresController::class, 'Retray'])->name('tyre.retray');
+Route::post('tyres/retraypost/{id}', [TyresController::class, 'RetrayPost'])->name('tyre.retraypost');
+
+//Defected Tyres
+Route::get('tyres/alldefected', [TyresController::class, 'DefectedTyres'])->name('tyre.alldefected');
+Route::get('tyres/defected/{id}', [TyresController::class, 'Defected'])->name('tyre.defected');
+Route::post('tyres/defectedpost/{id}', [TyresController::class, 'DefectedPost'])->name('tyre.defectedpost');
 
 //Trip Sheet
 Route::get('/trip/all', [TripController::class, 'AllTrip'])->name('all.trip');

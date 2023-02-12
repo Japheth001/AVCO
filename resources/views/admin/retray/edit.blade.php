@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="max-height: 7px;">
-           <b>Store Tyre</b>
+           <b>Retray Tyre</b>
 
 
                     <!-- Button trigger modal -->
@@ -17,7 +17,6 @@
 
 
     </x-slot>
-    <br>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -33,11 +32,11 @@
 <body>
     <!-- Form Begins -->
     <!-- <form action="#" class="form"> -->
-    <form action="{{url('tyres/storepost/'.$tyres->id)}}" method="post" class="form">
+    <form action="{{url('tyres/retraypost/'.$tyres->id)}}" method="post" class="form">
     @csrf
-        <h2 class="text-center">Store Tyre</h2><br>
+        <h2 class="text-center">Retray Tyre</h2><br>
        
-        <img src="{{asset('/storage/images/Othergif/storeTyre2.gif')}}" alt="Welcome" class="img-fluid mb-3" style="width:90%; height:25%; margin:auto">
+        <img src="{{asset('/storage/images/Othergif/retraytyre1.gif')}}" alt="Welcome" class="img-fluid mb-3" style="width:90%; height:28%; margin:auto">
       
 
         <!-- Form item - Contact -->
@@ -84,7 +83,7 @@
             </div> -->
 
             <div class="input-group">
-                <label for="size">Select the Option to Store Tyre</label>
+                <label for="size">Select the Option to Retray Tyre</label>
             
             </div>
 
@@ -92,16 +91,16 @@
              <div class="custom-selects" style="width: 200px; font-size: 12.5px;">
                                                   <select name="status" size="1">
                                                         <option value="select">select</option>
-                                                          <option value="Store">Store</option>
-                                                          <option value="On Order">On Order</option>
+                                                          <option value="to-retray">To-Retray</option>
+                                                          <option value="from-retray">From-Retray</option>
                                                       
 
                                                   </select>
 						                                </div>
             
             <div class="btns-group" style="margin-top:20px">
-                <a href="{{route('tyre.allstore')}}" class="btn btn-prev">Back</a>
-                <input type="submit" value="Store" class="btn" />
+                <a href="{{route('tyre.allretray')}}" class="btn btn-prev">Back</a>
+                <input type="submit" value="Retray" class="btn" />
 
 
 

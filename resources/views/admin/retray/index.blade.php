@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="max-height: 5px;">
-           <b>Store Tyres</b>
+           <b>Retray Tyre</b>
 
 
 
@@ -93,14 +93,14 @@
 
 
 
-                            @if(session('updateStore'))
+                            @if(session('updateRetray'))
 <!--
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                                             <strong>{{session('success')}}</strong> -->
                                 <div>
                                            <script>
                                                         Swal.fire(
-                                                            'Store Record Updated Successfully!',
+                                                            'Retray Record Successfully Done!',
                                                             'You clicked the button!',
                                                             'success'
                                             );
@@ -154,7 +154,7 @@
                     <td>{{$tyre->status}}</td>
                     <td>{{$tyre->created_at}}</td>
                     <!-- <td><a href="{{url('tyre/edit/'.$tyre->id)}}"<span style="width:70px" class="btn btn-info">Edit</span></td> -->
-                    <td><a href="{{url('tyres/store/'.$tyre->id)}}"<span style="width:70px" class="btn btn-success">Store</span></td>
+                    <td><a href="{{url('tyres/retray/'.$tyre->id)}}"<span style="width:70px" class="btn btn-success">Retray</span></td>
                     <!-- <td><a href="{{url('tyre/delete/'. $tyre->id)}}"<span class="btn btn-danger">Delete</span></td> -->
                     <!-- <td><a href="{{url('tyre/manage/'. $tyre->id)}}"<span class="btn btn-danger">Manage</span></td> -->
         </tr>

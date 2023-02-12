@@ -35,17 +35,8 @@
     <form action="{{route('tyre.add')}}" method="post" class="form">
     @csrf
         <h2 class="text-center">Tyre Registration Form</h2>
-        <!-- Credit Link -->
-        <!-- <div class="text-center"><a href="https://github.com/rahulrajput83" target="_blank">Created by Rahul Rajput</a></div> -->
-
-        <!-- Progress Bar  -->
-        <div class="progressbar">
-            <div class="progress" id="progress"></div>
-            <div class="progress-step progress-step-active" data-title="Basic"></div>
-            <!-- <div class="progress-step" data-title="Contact"></div>
-            <div class="progress-step" data-title="Social"></div> -->
-            <div class="progress-step" data-title="Password"></div>
-        </div>
+        <img src="{{asset('/storage/images/Othergif/progressIcon.jpg')}}" alt="Welcome" class="img-fluid mb-3" style="width:50%; height:18%; margin:auto">
+      
 
         <!-- Form item - Basic -->
         <div class="form-step form-step-active">

@@ -23,12 +23,12 @@ class TyresController extends Controller
     //
     public function AllTyreDash()
     {
-        $tyres = Tyres::latest()->paginate(4);
+        $tyres = Tyres::latest()->paginate(5);
         return view('admin.tyres.tyredash', compact('tyres'));
     }
     public function AllTyres()
     {
-        $tyres = Tyres::latest()->paginate(4);
+        $tyres = Tyres::latest()->paginate(5);
         return view('admin.tyres.index', compact('tyres'));
     } 
 
@@ -134,7 +134,7 @@ class TyresController extends Controller
     //Tyre Dashboard
     public function IssueTyreDass(){
         // $tyres = Tyres::join('issue_tyres', 'tyres.id' = 'issue_tyres.id')->get(['tyres.*', 'issue_tyres.descrption']);
-        $tyres = Tyres::latest()->paginate(4)->join('issue_tyres', 'tyres.id', '=', 'issue_tyres.id')
+        $tyres = Tyres::latest()->paginate(5)->join('issue_tyres', 'tyres.id', '=', 'issue_tyres.id')
                ->get(['tyres.*', 'issue_tyres.status']);
 
         return view('admin.tyredash.issued', compact('tyres'));
@@ -157,7 +157,7 @@ class TyresController extends Controller
     public function TyresAllIssue()
     {
         $issuetyre=IssueTyre::all();
-        $tyres = Tyres::latest()->paginate(4);
+        $tyres = Tyres::latest()->paginate(5);
         return view('admin.issuetyre.index', compact('tyres','issuetyre'));
     } 
 
@@ -192,10 +192,81 @@ class TyresController extends Controller
     //Store Tyres
     public function StoreTyres()
     {
-        $tyres = Tyres::latest()->paginate(4);
+        $tyres = Tyres::latest()->paginate(5);
         return view('admin.storetyre.index', compact('tyres'));
     } 
 
+    public function Store($id)
+    {
+        $tyres = Tyres::find($id);
+        return view('admin.storetyre.edit', compact('tyres'));
+    }
+    public function StorePost(Request $request, $id)
+    {
+        // $issue_tyres=IssueTyre::find($id);
+        // return view('admin.tyres.issue', compact('issue_tyres'));
 
-    
+        // IssueTyre::insert([
+            $tyres = Tyres::find($id)->update([
+           
+            'status' => $request->status,
+                     
+        ]);
+
+        return Redirect()->route('tyre.allstore')->with('updateStore', 'Tyre Successfully Issued!');
+    }
+    public function RetrayTyres()
+    {
+        $tyres = Tyres::latest()->paginate(5);
+        return view('admin.retray.index', compact('tyres'));
+    } 
+
+    public function Retray($id)
+    {
+        $tyres = Tyres::find($id);
+        return view('admin.retray.edit', compact('tyres'));
+    }
+
+    public function RetrayPost(Request $request, $id)
+    {
+        // $issue_tyres=IssueTyre::find($id);
+        // return view('admin.tyres.issue', compact('issue_tyres'));
+
+        // IssueTyre::insert([
+            $tyres = Tyres::find($id)->update([
+           
+            'status' => $request->status,
+                     
+        ]);
+
+        return Redirect()->route('tyre.allretray')->with('updateRetray', 'Tyre Successfully Issued!');
+    }
+
+    public function DefectedTyres()
+    {
+        $tyres = Tyres::latest()->paginate(5);
+        return view('admin.defectedT.index', compact('tyres'));
+    } 
+
+    public function Defected($id)
+    {
+        $tyres = Tyres::find($id);
+        return view('admin.defectedT.edit', compact('tyres'));
+    }
+
+    public function DefectedPost(Request $request, $id)
+    {
+        // $issue_tyres=IssueTyre::find($id);
+        // return view('admin.tyres.issue', compact('issue_tyres'));
+
+        // IssueTyre::insert([
+            $tyres = Tyres::find($id)->update([
+           
+            'status' => $request->status,
+                     
+        ]);
+
+        return Redirect()->route('tyre.alldefected')->with('updateDefect', 'Tyre Successfully Issued!');
+    }
+
 }

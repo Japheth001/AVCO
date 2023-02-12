@@ -67,8 +67,12 @@
                         {{ __(' TripSheet') }}
                     </x-jet-nav-link> -->
 
-                    <x-jet-nav-link href="{{route('all.fuel')}}">
+                    <!-- <x-jet-nav-link href="{{route('all.fuel')}}">
                         {{ __(' Fuel') }}
+                    </x-jet-nav-link> -->
+
+                    <x-jet-nav-link href="{{route('all.fuel')}}">
+                        {{ __(' Reports') }}
                     </x-jet-nav-link>
 
                     <x-jet-nav-link href="{{route('all.mantain')}}">
