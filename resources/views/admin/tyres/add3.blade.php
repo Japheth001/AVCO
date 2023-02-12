@@ -35,8 +35,8 @@
     <form action="{{route('tyre.add')}}" method="post" class="form">
     @csrf
         <h2 class="text-center">Tyre Registration Form</h2>
-        <img src="{{asset('/storage/images/Othergif/progressIcon.jpg')}}" alt="Welcome" class="img-fluid mb-3" style="width:50%; height:18%; margin:auto">
-      
+        <!-- <img src="{{asset('/storage/images/Othergif/progressIcon.jpg')}}" alt="Welcome" class="img-fluid mb-3" style="width:50%; height:18%; margin:auto">
+       -->
 
         <!-- Form item - Basic -->
         <div class="form-step form-step-active">
