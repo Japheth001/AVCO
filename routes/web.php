@@ -239,6 +239,12 @@ Route::post('product/add', [ProductController::class, 'AddProduct'])->name('prod
 Route::get('/product/getNewProd/{id}', [ProductController::class, 'GetNewProd']);
 Route::post('/product/update/{id}', [ProductController::class, 'UpdateProduct'])->name('product.update');
 Route::get('product/delete/{id}', [ProductController::class, 'DeleteProduct']);
+Route::get('product/quantity/{id}', [ProductController::class, 'productQuantity'])->name('product.quantity.all');
+Route::get('product/quantity/new/{id}', [ProductController::class, 'productQuantityNew'])->name('product.quantity.new');
+Route::post('product/quantity/new', [ProductController::class, 'saveProductQuantity'])->name('product.quantity.save');
+Route::get('product/usage/all/{id}', [ProductController::class, 'productUsage'])->name('product.usage.all');
+Route::get('product/usage/new/{id}', [ProductController::class, 'productUsageNew'])->name('product.usage.new');
+Route::post('product/usage/new', [ProductController::class, 'saveProductUsage'])->name('product.usage.save');
 
 // BatteryController
 Route::get('/battery/all', [BatteryController::class, 'AllBattery'])->name('all.battery');

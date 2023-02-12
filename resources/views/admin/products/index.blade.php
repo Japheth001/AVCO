@@ -112,13 +112,14 @@
                                 <th scope="col">SL</th>
                                 <!-- <th scope="col">User</th> -->
                                 <th scope="col">Name</th>
-                                <th scope="col">Slug</th>
+                                <th scope="col">Quantity</th>
+                                {{-- <th scope="col">Slug</th> --}}
                                 <th scope="col">Description</th>
                                 <th scope="col">Image</th>
-                                <th scope="col">Status</th>
-                                <th scope="col">Meta-Title</th>
+                                <th scope="col">Status</th>                                
+                                {{-- <th scope="col">Meta-Title</th>
                                 <th scope="col">Meta-Keyword</th>
-                                <th scope="col">Meta-Description</th>
+                                <th scope="col">Meta-Description</th> --}}
 
 
 
@@ -136,20 +137,27 @@
                     <th scope="row">{{$products->firstitem()+$loop->index}}</th>
 
                     <td>{{$product->name}}</td>
-                    <td>{{$product->slug}}</td>
-                    <td>{{$product->description}}</td>
+                    <td>
+                        @if($product->quantity < 5)
+                            <span style="color:red;">{{$product->quantity}}</span>
+                        @elseif($product->quantity < 10)
+                            <span style="color:orange;">{{$product->quantity}}</span>
+                        @else
+                            {{$product->quantity}}
+                        @endif                  
+                    
+                    </td>
+                    {{-- <td>{{$product->slug}}</td> --}}
+                    <td>{{$product->small_description}}</td>
                     
                     <td><img src="{{URL::asset('storage/'.$product->image)}}" class="img-responsive" alt="" style="width:50px; height:50px"/></td>
-                    <td>{{$product->status=='1' ? 'hidden':'visible'}}</td>
-                    <td>{{$product->meta_title}}</td>
+                    <td>{{$product->status=='1' ? 'hidden':'visible'}}</td>                    
+                    {{-- <td>{{$product->meta_title}}</td>
                     <td>{{$product->meta_keyword}}</td>
-                    <td>{{$product->meta_description}}</td>
+                    <td>{{$product->meta_description}}</td> --}}
                     <td>{{$product->created_at}}</td>
 
                     <!-- <td>{{$product->receipt}}</td> -->
-
-
-
 
                     <td>
                         <div class="btn-group open">
@@ -159,8 +167,9 @@
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="{{url('/product/getNewProd/'.$product->id)}}"><i class="fa fa-edit fa-fw"></i> Edit</a></li>
+                        <li><a href="{{url('/product/quantity/'. $product->id)}}"><i class="fa fa-sort-amount-up"></i> Quantity updates</a></li>
+                        <li><a href="{{url('/product/usage/all/'. $product->id)}}"><i class="fa fa-car"></i> Usage history</a></li>
                         <li><a href="{{url('/product/delete/'. $product->id)}}"><i class="fa fa-trash"></i> Delete</a></li>
-
                         <li class="divider"></li>
 
                     </ul>
