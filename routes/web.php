@@ -210,6 +210,7 @@ Route::get('employee/delete/{id}', [EmployeeController::class, 'DeleteEmployee']
 
 //New Trip Sheet
 Route::get('/ntripsheet/all', [NTripSheet::class, 'AllTripSheet'])->name('all.tripsheets');
+Route::get('/ntripsheet/all2', [NTripSheet::class, 'AllTripSheet2'])->name('all.tripsheets2');
 Route::get('/ntripsheet/new', [NTripSheet::class, 'ViewTrips'])->name('view.tripsheets');
 Route::post('ntripsheet/add', [NTripSheet::class, 'AddTrip'])->name('tripsheets.add');
 Route::get('/ntripsheet/getTrip/{id}', [NTripSheet::class, 'GetTrip']);

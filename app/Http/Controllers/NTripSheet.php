@@ -3,17 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\NTrip;
-use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
-use RealRashid\SweetAlert\Facades\Alert;
 
 ?>
 <script src="{{asset('dist/assets/sweetalert2.min.js')}}"></script>
 
 <link rel="stylesheet" href="{{asset('dist/assets/sweetalert2.min.css')}}">
 <?php
-
 
 class NTripSheet extends Controller
 {
@@ -22,6 +20,12 @@ class NTripSheet extends Controller
         $trips = NTrip::all();
         // return view('admin.tripsheet.add2', compact('trips'));
         return view('admin.tripsheet.add', compact('trips'));
+    }
+    public function AllTripSheet2()
+    {
+        $trips = NTrip::all();
+        // return view('admin.tripsheet.add2', compact('trips'));
+        return view('admin.tripsheet.addnew', compact('trips'));
     }
 
     public function ViewTrips()
@@ -81,21 +85,29 @@ class NTripSheet extends Controller
             'fuelsupauthority' => $request->fuelsupauthority,
             'fuelsupbalance' => $request->fuelsupbalance,
 
+            'expensedate' => $request->expensedate,
+            'amount' => $request->amount,
+            'location' => $request->location,
+            'reason' => $request->reason,
+            'authority' => $request->authority,
+
             'created_at' => Carbon::now(),
         ]);
 
         return Redirect()->route('view.tripsheets')->with('success', 'Trip Record Successfully Added');
     }
 
-    public function GetTrip($id){
+    public function GetTrip($id)
+    {
 
         $trips = NTrip::find($id);
-         return view('admin.tripsheet.edit', compact('trips'));
+        return view('admin.tripsheet.edit', compact('trips'));
     }
 
-    public function UpdateTrip(Request $request,$id){
-        
-        $trips=NTrip::find($id)->update([
+    public function UpdateTrip(Request $request, $id)
+    {
+
+        $trips = NTrip::find($id)->update([
             'no' => $request->no,
             'kmsbf' => $request->kmsbf,
             'startdate' => $request->startdate,
@@ -141,16 +153,20 @@ class NTripSheet extends Controller
             'fuelsuplitres' => $request->fuelsuplitres,
             'fuelsupauthority' => $request->fuelsupauthority,
             'fuelsupbalance' => $request->fuelsupbalance,
+
+            'expensedate' => $request->expensedate,
+            'amount' => $request->amount,
+            'location' => $request->location,
+            'reason' => $request->reason,
+            'authority' => $request->authority,
         ]);
 
-        return Redirect() ->route('view.tripsheets') ->with ('update','Record Updated Successfully!');
+        return Redirect()->route('view.tripsheets')->with('update', 'Record Updated Successfully!');
     }
 
-
     public function DeleteTrip($id)
-    
     {
-   
+
         NTrip::find($id)->delete();
         return redirect()->back()->with('delete', 'Deleted!');
     }

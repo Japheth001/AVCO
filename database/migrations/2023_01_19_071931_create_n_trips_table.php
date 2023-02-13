@@ -29,9 +29,9 @@ return new class extends Migration
             $table->string('goto');
             $table->string('gocargodet');
             $table->string('goamt');
-            $table->string('goinvoice')->nullable();;
-            $table->string('gopaydet')->nullable();;
-            $table->string('goreceipt')->nullable();;
+            $table->string('goinvoice')->nullable();
+            $table->string('gopaydet')->nullable();
+            $table->string('goreceipt')->nullable();
 
            
             $table->string('returnfrom');
@@ -51,18 +51,25 @@ return new class extends Migration
             $table->string('receiptno2')->nullable();
 
 
-            $table->string('fuelallocfrom')->nullable();;
-            $table->string('fuelallocto')->nullable();;
-            $table->string('fuelallockms')->nullable();;
-            $table->string('fuelallocratio')->nullable();;
-            $table->string('fuelalloclitres')->nullable();;
+            $table->string('fuelallocfrom')->nullable();
+            $table->string('fuelallocto')->nullable();
+            $table->string('fuelallockms')->nullable();
+            $table->string('fuelallocratio')->nullable();
+            $table->string('fuelalloclitres')->nullable();
 
 
-            $table->string('fuelsupdate')->nullable();;
-            $table->string('fuelsupstation')->nullable();;
-            $table->string('fuelsuplitres')->nullable();;
-            $table->string('fuelsupauthority')->nullable();;
-            $table->string('fuelsupbalance')->nullable();;
+            $table->string('fuelsupdate')->nullable();
+            $table->string('fuelsupstation')->nullable();
+            $table->string('fuelsuplitres')->nullable();
+            $table->string('fuelsupauthority')->nullable();
+            $table->string('fuelsupbalance')->nullable();
+
+            $table->date('expensedate')->nullable();
+            $table->string('amount')->nullable();
+            $table->string('location')->nullable();
+            $table->string('reason')->nullable();
+            $table->string('authority')->nullable();
+
 
             $table->timestamps();
         });

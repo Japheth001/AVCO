@@ -61,6 +61,13 @@ class NTrip extends Model
         'fuelsupauthority',
         'fuelsupbalance',
 
+
+        'expensedate',
+        'amount',
+        'location',
+        'reason',
+        'authority',
+
      ];
 
      public function user(){

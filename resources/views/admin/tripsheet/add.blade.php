@@ -59,6 +59,7 @@
                                 <li id="payment"><strong>Return1</strong></li>
                                 <li id="confirm"><strong>Return2</strong></li>
                                 <li id="confirm"><strong>Fuel</strong></li>
+                                <li id="confirm"><strong>Expense</strong></li>
                                 <li id="confirm"><strong>Submit</strong></li>
                             </ul>
                             <!-- fieldsets -->
@@ -312,7 +313,28 @@
                                     <input type="text" name="	fuelsupbalance" placeholder="Balance"/>
 
                                 </div>
-                                <input type="button" onclick="window.location.href='#section5'" name="previous" class="previous action-button-previous" value="Previous"/>
+                                <input type="button" onclick="window.location.href='#section6'" name="previous" class="previous action-button-previous" value="Previous"/>
+                                <input type="button" onclick="window.location.href='#section7'" name="make_payment" class="next action-button" value="Next Step"/>
+                            </fieldset>
+
+
+
+
+
+                            <fieldset id="section7">
+                                <div class="form-card">
+
+                                    <h2 class="fs-title">Vehicle Journey Expense</h2>
+                                    <label>Fill the Expense Record</label>
+                                    <input type="date" name="expensedate" placeholder="Expense Date"/>
+                                    <input type="text" name="amount" placeholder="Amount"/>
+
+                                    <input type="text" name="location" placeholder="Location"/>
+                                    <input type="text" name="reason" placeholder="Reason"/>
+                                    <input type="text" name="authority" placeholder="Authority"/>
+
+                                </div>
+                                <input type="button" onclick="window.location.href='#section6'" name="previous" class="previous action-button-previous" value="Previous"/>
                                 <input type="submit"  name="make_payment" class="next action-button" value="Submit"/>
                             </fieldset>
 
