@@ -1,25 +1,28 @@
 <?php
 
+use App\Models\Trip;
+use App\Models\User;
+use App\Models\Brand;
+use App\Models\NTrip;
+use App\Models\Slider;
+use App\Models\Products;
+use App\Http\Controllers\NTripSheet;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FuelController;
+use App\Http\Controllers\TripController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\BatteryController;
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\TyresController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\BatteryController;
+use App\Http\Controllers\ExpenseController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EmployeeController;
-use App\Http\Controllers\ExpenseController;
-use App\Http\Controllers\FuelController;
+use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\MaintenanceController;
 use App\Http\Controllers\NewCategoriesController;
-use App\Http\Controllers\NTripSheet;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\SettingsController;
-use App\Http\Controllers\SliderController;
-use App\Http\Controllers\TripController;
-use App\Http\Controllers\TyresController;
-use App\Http\Controllers\VehicleController;
-use App\Models\Brand;
-use App\Models\Slider;
-use App\Models\User;
-use Illuminate\Support\Facades\Route;
 
 // use Intervention\Image\Image;
 
@@ -79,9 +82,12 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
-
-        $users = User::all();
-        return view('dashboard', compact('users'));
+        $users = User::latest()->take(5)->get();
+        // get the latest 5 products
+        $products = Products::latest()->take(5)->get();
+        // get the latest 5 trips
+        $trips = NTrip::latest()->take(5)->get();
+        return view('dashboard', compact('users', 'products', 'trips'));
         // return view('homefs');
         // return view('newdash');
     })->name('dashboard');
