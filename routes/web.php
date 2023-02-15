@@ -259,6 +259,7 @@ Route::post('product/quantity/new', [ProductController::class, 'saveProductQuant
 Route::get('product/usage/all/{id}', [ProductController::class, 'productUsage'])->name('product.usage.all');
 Route::get('product/usage/new/{id}', [ProductController::class, 'productUsageNew'])->name('product.usage.new');
 Route::post('product/usage/new', [ProductController::class, 'saveProductUsage'])->name('product.usage.save');
+Route::get('product/report/pdf', [ProductController::class, 'generatePdfReport'])->name('product.report.pdf');
 
 // BatteryController
 Route::get('/battery/all', [BatteryController::class, 'AllBattery'])->name('all.battery');

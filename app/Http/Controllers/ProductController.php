@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProductRequest;
 use App\Models\ProductQuantityUpdate;
 use Intervention\Image\Facades\Image;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class ProductController extends Controller
 {
@@ -207,5 +209,20 @@ class ProductController extends Controller
 
         $request->session()->flash('success', 'Product usage updated successfully');
         return redirect()->route('product.usage.all', ['id' => $request->productId]);
+    }
+
+    public function generatePdfReport(){
+        $data = [
+            'title' => 'My PDF',
+            'content' => 'This is some PDF content'
+        ];
+
+        $options = new Options();
+        $options->set('defaultFont', 'Arial');
+
+        $pdf = new Dompdf($options);
+        $pdf->loadView('admin.products.pdfReport', $data);
+
+        return $pdf->stream();
     }
 }
