@@ -37,7 +37,9 @@
                             @endforeach                              
                         </tbody>
                     </table>
-                    <button class="btn btn-primary mt-3">View All Trips</button>
+                    <a href="{{route('view.tripsheets')}}" class="btn btn-primary mt-3" >
+                        View All Trips
+                    </a>
                 </div> 
                   <div class="col-lg-6 col-md-10 col-sm-12">
                     <h3 class="text-center">Trip sheet summary</h3>
@@ -72,8 +74,8 @@
                            @endforeach                            
                         </tbody>
                     </table>
-                    <a href="#" class="btn btn-primary mt-3" >
-                        View All users
+                    <a href="{{route('users.all')}}" class="btn btn-primary mt-3" >
+                        View All Users
                     </a>
                     
                 </div>    

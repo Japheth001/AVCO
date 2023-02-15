@@ -91,6 +91,13 @@ Route::middleware([
         // return view('homefs');
         // return view('newdash');
     })->name('dashboard');
+
+    Route::get('/users/all', function () {
+        $users = User::all();
+        return view('admin.settings.users', compact('users'));
+        // return view('homefs');
+        // return view('newdash');
+    })->name('users.all');
 });
 
 //All Category

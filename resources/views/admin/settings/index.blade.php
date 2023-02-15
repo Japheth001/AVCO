@@ -101,6 +101,17 @@
               </div>
           </div>
 
+          <div class="col-md-3 text-center">
+            <a href="{{route('all.product')}}">
+                <div class="profile">
+                    <!-- <img src="images/logo16.jpg" class="user"> -->
+                    <i style="font-size:35px" class="fa-solid fa-users"></i>
+                    <!-- <blockquote>It</blockquote> -->
+                    <h3><span>USERS</span></h3>
+                </div>
+            </a>            
+          </div>
+
           </div>
         </div>
     </section>
