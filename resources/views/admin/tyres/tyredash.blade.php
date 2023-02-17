@@ -122,7 +122,34 @@
               </div>
           </div>
 
+
+
+          <div class="col-md-3 text-center" class="row" style="margin-Top:20px;">
+              <div class="profile">
+                  <!-- <img src="images/logo16.jpg" class="user"> -->
+                  <i style="font-size:35px" class="fa-thin fa-tire-flat"></i>
+                  <a style="text-decoration: none; background-color: transparent;" href="https://fuelconsumption.000webhostapp.com/app/index.php/Welcome/"
+                </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
+                  <!-- <blockquote>t</blockquote> -->
+                  <h3><span>FUEL MONITORING</span></h3>
+              </div>
           </div>
+
+
+          <div class="col-md-3 text-center" class="row" style="margin-Top:20px;">
+              <div class="profile">
+                  <!-- <img src="images/logo16.jpg" class="user"> -->
+                  <i style="font-size:35px" class="fa-thin fa-tire-flat"></i>
+                  <a style="text-decoration: none; background-color: transparent;" href="http://127.0.0.1:5000"
+                </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
+                  <!-- <blockquote>t</blockquote> -->
+                  <h3><span>TYRE CONDITION</span></h3>
+              </div>
+          </div>
+
+          </div>
+
+
         </div>
     </section>
 

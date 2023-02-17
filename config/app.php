@@ -189,6 +189,7 @@ return [
          */
         Intervention\Image\ImageServiceProvider::class,
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -199,6 +200,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\FortifyServiceProvider::class,
         App\Providers\JetstreamServiceProvider::class,
+        
         
 
     ],
@@ -218,6 +220,7 @@ return [
         // 'Image' => Intervention\Image\Facades\Image::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
         // 'Image' => Intervention\Image\ImageManagerStatic::class,
 
         // 'ExampleClass' => App\Example\ExampleClass::class,

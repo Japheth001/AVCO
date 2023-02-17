@@ -1,3 +1,7 @@
+@php
+  $sliders=DB::table('sliders')->get();
+@endphp
+
 <!DOCTYPE html>
 <head>
   <title>AVCO</title>
@@ -28,7 +32,7 @@
     <section id="nav-bar">
         <nav class="navbar navbar-expand-lg navbar-light">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#"><img src="{{asset('front/images/logo7.jpg')}}"><span class="title-color">AVCO Limited Company</span>.</a>
+              <a class="navbar-brand" href="#"><img src="{{asset('front/images/logo7.jpg')}}"><span class="title-color">&nbsp;&nbsp; AVCO Limited Company</span>.</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
@@ -80,7 +84,7 @@
 
 
 
-
+ 
    <!--Slider-->
     <div class="slider" >
 
@@ -91,49 +95,40 @@
           <button type="button" data-bs-target="#headSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
 
+      
+        <div class="carousel-inner" role="listbox">
 
-        <div class="carousel-inner">
-
-
+           
 
           <div class="box11" style="margin-top: 200px;color: white" >
 
-
+             
             <h1 style="text-align: center; font-size: 30px"> Welcome To Our Logistic Services</h1>
               <h1 style="text-align: center; font-size: 25px">Active</h1>
               <marquee><h1 style="text-align: center; font-size: 20px; color: white">Karibu tena..!</h1></marquee>
 
 
-
+        
             </div>
+          
+           @foreach($sliders as $key=>$slider)
 
 
 
-
-          <div class="carousel-item active">
-
-            <img src="{{asset('front/images/software1.jpg')}}" class="d-block img-fluid" alt="...">
-            <div class="carousel-caption">
-              <br><br><br><br><br><br><br><br>
-                <h5>We value our customers</h5>
-
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="{{asset('front/images/software30.jpg')}}" class="d-block img-fluid" alt="...">
+          <div class="carousel-item {{$key ==0 ? 'active': ''}}">
+            <img src="{{URL::asset('storage/'.$slider->image)}}" class="d-block img-fluid" alt="...">
 
             <div class="carousel-caption">
               <br><br><br><br><br><br>
-              <h5>Locate Goods and services faster</h5>
+              <h5>{{$slider->title}}</h5>
+            </div>
           </div>
-          </div>
-          <div class="carousel-item">
-            <img src="{{asset('front/images/software29.jpg')}}" class="d-block img-fluid" alt="...">
-            <div class="carousel-caption">
-              <br><br><br><br><br><br>
-              <h5>You are our priority</h5>
-          </div>
-          </div>
+
+          @endforeach
+
+
+
+
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#headSlider"  data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -530,7 +525,7 @@
 
 
 
-      
+
 
 
 </body>
