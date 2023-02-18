@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 use Carbon\Carbon;
-use Dompdf\Dompdf;
-use Dompdf\Options;
 use App\Models\Brand;
 use App\Models\Vehicle;
 use App\Models\Products;
@@ -15,7 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProductRequest;
 use App\Models\ProductQuantityUpdate;
 use Intervention\Image\Facades\Image;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
 class ProductController extends Controller
 {
@@ -212,18 +210,12 @@ class ProductController extends Controller
     }
 
     public function generatePdfReport(){
+        $products = Products::all();
         $data = [
-            'title' => 'My PDF',
-            'content' => 'This is some PDF content'
+            'products' => $products
         ];
-
-        $options = new Options();
-        $options->set('defaultFont', 'Arial');
-
-        $pdf = new Dompdf($options);
-        // $pdf->loadView('admin.products.pdfReport', $data);
         $pdf = PDF::loadView('admin.products.pdfReport', $data);
 
-        return $pdf->stream();
+        return $pdf->stream('Stock Report.pdf');
     }
 }
