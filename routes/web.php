@@ -1,27 +1,39 @@
 <?php
 
+use App\Models\Team;
 use App\Models\Trip;
 use App\Models\User;
+use App\Models\About;
 use App\Models\Brand;
 use App\Models\NTrip;
 use App\Models\Slider;
+use App\Models\Contact;
 use App\Models\Products;
+use App\Models\Services;
+use App\Models\Testimonial;
+use App\Models\Availability;
 use App\Http\Controllers\NTripSheet;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FuelController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\TripController;
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\TyresController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\BatteryController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\SettingsController;
 use App\Http\Controllers\MaintenanceController;
+use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\AvailabilityController;
 use App\Http\Controllers\NewCategoriesController;
 
 // use Intervention\Image\Image;
@@ -46,8 +58,15 @@ Route::get('/', function () {
     // return $img->response('jpg');
     $brands = Brand::all();
     $sliders = Slider::all();
+    $abouts = About::all();
+    $services = Services::all();
+    $teams = Team::all();
+    $testimonials = Testimonial::all();
+    $availabilities = Availability::all();
+    $contacts = Contact::all();
     // return view('homef', compact('brands', 'sliders'));
-    return view('layouts.masterf', compact('brands', 'sliders'));
+    return view('layouts.masterf', compact('brands', 'sliders','abouts','services',
+    'teams','testimonials','availabilities','contacts'));
     // return view('welcome');
 });
 
@@ -201,13 +220,61 @@ Route::get('mantain/approvenewpost/{id}', function ($id) {
 //Admin-Log-Out
 Route::get('/admin/logout', [AdminController::class, 'LogOut'])->name('user.logout');
 
-//All Slide
+//All Slider
 Route::get('/slider/all', [SliderController::class, 'AllSlider'])->name('all.slider');
 Route::get('/slider/new', [SliderController::class, 'NewSlider'])->name('new.slider');
 Route::post('slider/add', [SliderController::class, 'AddSlider'])->name('add.slider');
 Route::get('/slider/edit/{id}', [SliderController::class, 'EditSlider']);
 Route::post('slider/update/{id}', [SliderController::class, 'UpdateSlider']);
 Route::get('slider/delete/{id}', [SliderController::class, 'DeleteSlider']);
+
+//About Us
+Route::get('/about/all', [AboutController::class, 'AllAbout'])->name('all.about');
+Route::get('/about/new', [AboutController::class, 'NewAbout'])->name('new.about');
+Route::post('about/add', [AboutController::class, 'AddAbout'])->name('add.about');
+Route::get('/about/edit/{id}', [AboutController::class, 'EditAbout']);
+Route::post('about/update/{id}', [AboutController::class, 'UpdateAbout']);
+Route::get('about/delete/{id}', [AboutController::class, 'DeleteAbout']);
+
+//Services
+Route::get('/service/all', [ServicesController::class, 'AllService'])->name('all.service');
+Route::get('/service/new', [ServicesController::class, 'NewService'])->name('new.service');
+Route::post('service/add', [ServicesController::class, 'AddService'])->name('add.service');
+Route::get('/service/edit/{id}', [ServicesController::class, 'EditService']);
+Route::post('service/update/{id}', [ServicesController::class, 'UpdateService']);
+Route::get('service/delete/{id}', [ServicesController::class, 'DeleteService']);
+
+//Team
+Route::get('/team/all', [TeamController::class, 'AllTeam'])->name('all.team');
+Route::get('/team/new', [TeamController::class, 'NewTeam'])->name('new.team');
+Route::post('team/add', [TeamController::class, 'AddTeam'])->name('add.team');
+Route::get('/team/edit/{id}', [TeamController::class, 'EditTeam']);
+Route::post('team/update/{id}', [TeamController::class, 'UpdateTeam']);
+Route::get('team/delete/{id}', [TeamController::class, 'DeleteTeam']);
+
+//Testimonial
+Route::get('/testimonial/all', [TestimonialController::class, 'AllTestimonial'])->name('all.testimonial');
+Route::get('/testimonial/new', [TestimonialController::class, 'NewTestimonial'])->name('new.testimonial');
+Route::post('testimonial/add', [TestimonialController::class, 'AddTestimonial'])->name('add.testimonial');
+Route::get('/testimonial/edit/{id}', [TestimonialController::class, 'EditTestimonial']);
+Route::post('testimonial/update/{id}', [TestimonialController::class, 'UpdateTestimonial']);
+Route::get('testimonial/delete/{id}', [TestimonialController::class, 'DeleteTestimonial']);
+
+//Availability
+Route::get('/available/all', [AvailabilityController::class, 'AllAvailability'])->name('all.available');
+Route::get('/available/new', [AvailabilityController::class, 'NewAvailability'])->name('new.available');
+Route::post('available/add', [AvailabilityController::class, 'AddAvailability'])->name('add.available');
+Route::get('/available/edit/{id}', [AvailabilityController::class, 'EditAvailability']);
+Route::post('available/update/{id}', [AvailabilityController::class, 'UpdateAvailability']);
+Route::get('available/delete/{id}', [AvailabilityController::class, 'DeleteAvailability']);
+
+//Contact
+Route::get('/contact/all', [ContactController::class, 'AllContact'])->name('all.contact');
+Route::get('/contact/new', [ContactController::class, 'NewContact'])->name('new.contact');
+Route::post('contact/add', [ContactController::class, 'AddContact'])->name('add.contact');
+Route::get('/contact/edit/{id}', [ContactController::class, 'EditContact']);
+Route::post('contact/update/{id}', [ContactController::class, 'UpdateContact']);
+Route::get('contact/delete/{id}', [ContactController::class, 'DeleteContact']);
 
 //Settings
 Route::get('/settings/settdashboard', [SettingsController::class, 'AllSetDash'])->name('all.setdash');

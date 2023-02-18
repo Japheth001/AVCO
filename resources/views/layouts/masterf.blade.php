@@ -1,5 +1,11 @@
 @php
   $sliders=DB::table('sliders')->get();
+  $abouts=DB::table('abouts')->get();
+  $services=DB::table('services')->get();
+  $teams=DB::table('teams')->get();
+  $testimonials=DB::table('testimonials')->get();
+  $availabilities=DB::table('availabilities')->get();
+  $contacts=DB::table('contacts')->get();
 @endphp
 
 <!DOCTYPE html>
@@ -45,9 +51,9 @@
                     <a class="nav-link" href="#about">About Us</a>
                   </li>
 
-                  <li class="nav-item">
+                  <!-- <li class="nav-item">
                     <a class="nav-link" href="#ourbranches">Branches</a>
-                </li>
+                </li> -->
 
                   <li class="nav-item">
                     <a class="nav-link" href="#services">Services</a>
@@ -150,9 +156,13 @@
           <div class="row">
               <div class="col-md-6">
                 <h2>About Us</h2>
+
+                @foreach($abouts as $about)
                 <div class="about-content">
-                  <p>Being a technology focused company, we leverage technology in every aspect of our marketing solutions in order to provide our customers with goods and services.</p>
+                  <p>{{$about->aboutus}}</p>
+
                 </div>
+                @endforeach
                 <button type="button" class="btn btn-primary">Read More</button>
               </div>
               <div class="col-md-6 skills-bar">
@@ -179,7 +189,7 @@
 
 
 <!--Our Branches-->
-<div id="ourbranches">
+<!-- <div id="ourbranches">
     <caption><h1>Our Branches</h1></caption>
 
     <div class="branches">
@@ -193,7 +203,7 @@
     </ul>
     </div>
 
-  </div>
+  </div> -->
 
 
 
@@ -212,17 +222,21 @@
       <div class="container">
         <h1>Our Services</h1>
         <div class="row services">
+
+          @foreach($services as $service)
             <div class="col-md-3 text-center">
               <div class="icon">
                   <i class="fa fa-desktop"></i>
                 </div>
-                  <h3>Web Development</h3>
-                  <p>Being a technology focused company, we leverage technology in every aspect of our security solutions in order to provide our customers with state of the art security solutions.</p>
+                  <h3>{{$service->title}}</h3>
+                  <p>{{$service->details}}</p>
 
             </div>
 
+            @endforeach
 
-            <div class="col-md-3 text-center">
+
+            <!-- <div class="col-md-3 text-center">
               <div class="icon">
                   <i class="fa fa-tablet"></i>
                 </div>
@@ -248,7 +262,7 @@
                   <h3>Graphic Designing</h3>
                   <p>Being a technology focused company, we leverage technology in every aspect of our security solutions in order to provide our customers with state of the art security solutions.</p>
 
-            </div>
+            </div> -->
         </div>
       </div>
     </section>
@@ -261,9 +275,13 @@
       <div class="container">
           <h1>Our Team</h1>
           <div class="row">
+
+            @foreach($teams as $team)
+
               <div class="col-md-3 profile-pic text-center">
                   <div class="img-box">
-                      <img src="{{asset('front/images/logo9.jpg')}}" class="img-responsive">
+                      <img src="{{URL::asset('storage/'.$team->image)}}" class="d-block img-fluid" alt="..." style="width:200px; height:200px">
+                      <!-- <img src="{{URL::asset('storage/'.$slider->image)}}" class="d-block img-fluid" alt="..."> -->
                       <ul>
                         <a href="#"><li><i class="fa fa-facebook"></i></li></a>
                         <a href="#"><li><i class="fa fa-twitter"></i></li></a>
@@ -271,13 +289,15 @@
                       </ul>
                   </div>
 
-                  <h2>Mary N.</h2>
-                      <h3>Founder / CEO</h3>
-                      <p>Well visioned and focused to serve clients with highest level of professionalism</p>
+                  <h2>{{$team->name}}</h2>
+                      <h3>{{$team->title}}</h3>
+                      <p>{{$team->description}}</p>
               </div>
 
+              @endforeach
 
-              <div class="col-md-3 profile-pic text-center">
+
+              <!-- <div class="col-md-3 profile-pic text-center">
                 <div class="img-box">
                     <img src="{{asset('front/images/japs.png')}}"  class="img-responsive">
                     <ul>
@@ -322,7 +342,7 @@
             <h2>James Son</h2>
                 <h3>Digital Marketing</h3>
                 <p>Product innovation has always been a competitive differentiator for us.</p>
-        </div>
+        </div> -->
 
 
           </div>
@@ -340,17 +360,22 @@
           <p class="text-center">Comments</p>
 
           <div class="row">
+
+            @foreach($testimonials as $testimonial)
+
               <div class="col-md-4 text-center">
                   <div class="profile">
                       <img src="{{asset('front/images/logo22.jpg')}}" class="user">
-                      <blockquote>I have used the app, It's quite efficient</blockquote>
-                      <h3>Japheth M <span>Co-Founder at XYZ Company</span></h3>
+                      
+                      <blockquote>{{$testimonial->comments}}</blockquote>
+                      <h3><span>{{$testimonial->customer}}</span></h3>
                   </div>
               </div>
 
+            @endforeach
 
 
-              <div class="col-md-4 text-center">
+              <!-- <div class="col-md-4 text-center">
                 <div class="profile">
                     <img src="{{asset('front/images/logo22.jpg')}}" class="user">
                     <blockquote>Thanks to Business Mobile App, I have been able to gain real-time visibility on how to access goods and services faster than before.</blockquote>
@@ -366,7 +391,7 @@
                   <blockquote>I have used the app, It's quite efficient</blockquote>
                   <h3>Zipporah Mutua - <span>Manager at Ushindi Supermarket</span></h3>
               </div>
-          </div>
+          </div> -->
           </div>
         </div>
     </section>
@@ -384,21 +409,23 @@
       </tr>
     </thead>
 
+      @foreach($availabilities as $available)
       <tr>
         <td>Monday - Friday</td>
-        <td>8:00 a.m. to 6:00 p.m.</td>
+        <td>{{$available->monfri}}</td>
       </tr>
 
       <tr>
         <td>Saturday</td>
-        <td>8:00 a.m. to 6:00 p.m. </td>
+        <td>{{$available->saturday}}</td>
       </tr>
 
       <tr>
         <td>Sunday</td>
-        <td>Closed</td>
+        <td>{{$available->sunday}}</td>
       </tr>
 
+      @endforeach
 
     </table>
     </div>
@@ -470,15 +497,19 @@
               </div>
 
                        <div class="col-md-6 contact-info">
-                       <div class="follow"><b>Address:  </b><i class="fa fa-map-marker"></i>Along Langata Road, TMall, Nairobi</div>
+
+                       @foreach($contacts as $contact)
+                       <div class="follow"><b>Address:  </b><i class="fa fa-map-marker"></i>{{$contact->address}}</div>
 
 
 
-                        <div class="follow"><b><i class="fa fa-phone"></i>Phone:   </b>+254 712 345 678</div>
+                        <div class="follow"><b><i class="fa fa-phone"></i>Phone:   </b>{{$contact->phone}}</div>
 
 
 
-                        <div class="follow"><b><i class="fa fa-envelope-o"></i>Email:  </b>example@gmail.com</div>
+                        <div class="follow"><b><i class="fa fa-envelope-o"></i>Email:  </b>{{$contact->email}}</div>
+
+                        @endforeach
 
                         <div class="follow"><label><b>Get Social: </b></label>
                         <a href="#"><i class="fa fa-facebook"></i></a>

@@ -29,59 +29,55 @@
 
                 <div class ="col-md-5" style="margin: auto;">
                     <div class ="card" >
+                    
+
                         <div class= "card-header">
-                            <a href="{{route('all.about')}}" class="btn btn-primary">
-                                    <i class="fa-regular fa-arrow-alt-circle-left"></i>&nbsp Back
-                                </a>
-                        </div>
+                            
+
+                            <a href="{{route('all.testimonial')}}" class="btn btn-primary">
+                                <i class="fa-regular fa-arrow-alt-circle-left"></i>&nbsp Back
+                            </a>
+
+                          
+                        
+                    </div>
 
 
 
                     <div class="card-body">
 
-                    <form action="{{url('slider/update/'.$sliders->id)}}" method="post" enctype="multipart/form-data">
+                    <form action="{{url('testimonial/update/'.$testimonials->id)}}" method="post" enctype="multipart/form-data">
                                     @csrf
-                                            <div class="form-group">
-                                            <label for="exampleInputEmail1">Add slider</label>
-                                            <input type="text" class="form-control" value="{{$sliders->title}}"  name="title" id="exampleInputEmail1"
+
+                            <div class="form-group">
+                                            <label for="exampleInputEmail1">Customer Name</label>
+                                            <input type="text" class="form-control" value="{{$testimonials->customer}}"  name="customer" id="exampleInputEmail1"
                                             aria-describedby="emailHelp">
 
 
-                                            </div>
+                            </div>
 
-                            @error('title')
+                            
+                            @error('customer')
                             <span class="text-danger">{{$message}}</span>
                             @enderror
-
+                                  
 
                             <div class="form-group">
-                                            <label for="exampleInputEmail1">Descriptions</label>
-                                            <!-- <textarea id="inputDescriptionEs" class="form-control" name="description" rows="4" required>@isset($data){{$sliders->description_es}}@else @endIf</textarea> -->
+                                            <label for="exampleInputEmail1">Comments</label>
+                                            <!-- <textarea id="inputDescriptionEs" class="form-control" name="description" rows="4" required>@isset($data){{$testimonials->description_es}}@else @endIf</textarea> -->
                                            
-                                            <textarea rows="4", cols="54" input type="textarea" class="form-control"  name="description" id="exampleInputEmail1" aria-describedby="emailHelp">{{$sliders->description}}</textarea>
+                                            <textarea rows="4", cols="54" input type="textarea" class="form-control"  name="comments" id="exampleInputEmail1" 
+                                            aria-describedby="emailHelp">{{$testimonials->comments}}</textarea>
 
                                             </div>
 
-                            @error('description')
+                            @error('comments')
                             <span class="text-danger">{{$message}}</span>
                             @enderror
 
 
-                                            <div class="form-group">
-                                            <label for="exampleInputEmail1">Add slider Image</label>
-                                            <!-- <input type="file" class="form-control" value="{{$sliders->image}}"   name="image" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp"> -->
-                                            <input type="file" name="image" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $sliders->image }}">
-
-
-                                            </div>
-
-
-
-                            @error('image')
-                            <span class="text-danger">{{$message}}</span>
-                            @enderror
-
+                                           
 
                          <div id="ButtonCase">
                             <div  class="alignleft">
@@ -91,9 +87,9 @@
                             
                             <div class="alignright">
                             <!-- <i a href="{{route('edit.back')}}" class="fa-sharp fa-solid fa-backward fa-2x" ></i> -->
-                            <button type="button" style="background-color: #6666ff;" class="btn btn-primary"> <a href="{{route('all.slider')}}"/>
+                            <!-- <button type="button" style="background-color: #6666ff;" class="btn btn-primary"> <a href="{{route('all.testimonial')}}"/>
                                     <i class="fa-sharp fa-solid fa-backward fa-lg"/></i></a>
-                            </button>
+                            </button> -->
                             </div>
                             
                         </div>

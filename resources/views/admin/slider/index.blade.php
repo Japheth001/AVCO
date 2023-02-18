@@ -97,7 +97,13 @@
 
 
 
-                        <div class= "card-header">All slider</div>
+                        <div class= "card-header">
+                                <a href="{{route('all.setdash')}}" class="btn btn-primary">
+                                    <i class="fa-regular fa-arrow-alt-circle-left"></i>&nbsp Back
+                                </a>
+
+                              
+                        </div>
 
 
                         <table class="table">

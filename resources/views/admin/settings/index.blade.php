@@ -58,7 +58,7 @@
                     <!-- <img src="images/logo22.jpg" class="user"> -->
                     <i style="font-size:35px" class="fa-solid fa-hand-holding-hand"></i>
                     <!-- <blockquote>Tore.</blockquote> -->
-                    <h3><span>ABOUT US</span></h3>
+                    <h3><span><a href="{{route('all.about')}}">ABOUT US</a></span></h3>
                 </div>
             </div>
 
@@ -69,16 +69,16 @@
                   <!-- <img src="images/logo16.jpg" class="user"> -->
                   <i style="font-size:35px" class="fa-solid fa-screwdriver-wrench"></i>
                   <!-- <blockquote>I </blockquote> -->
-                  <h3><span>SERVICES</span></h3>
+                  <h3><span><a href="{{route('all.service')}}">SERVICES</a></span></h3>
               </div>
           </div>
             
-          <div class="col-md-3 text-center" class="row" style="margin-Top:20px;">
+          <div class="col-md-3 text-center">
               <div class="profile">
                   <!-- <img src="images/logo16.jpg" class="user"> -->
                   <i style="font-size:35px" class="fa-duotone fa-tire-flat"></i>
                   <!-- <blockquote>t</blockquote> -->
-                  <h3><span>PORTFOLIO</span></h3>
+                  <h3><span><a href="{{route('all.team')}}">OUR TEAM</a></span></h3>
               </div>
           </div>
 
@@ -88,26 +88,26 @@
                   <!-- <img src="images/logo16.jpg" class="user"> -->
                   <i style="font-size:35px" class="fa-duotone fa-tire-rugged"></i>
                   <!-- <blockquote>t</blockquote> -->
-                  <h3><span>CLIENTS</span></h3>
+                  <h3><span><a href="{{route('all.testimonial')}}">TESTIMONIALS</a></span></h3>
               </div>
           </div>
 
-          <div class="col-md-3 text-center">
+          <div class="col-md-3 text-center" class="row" style="margin-Top:20px;">
               <div class="profile">
                   <!-- <img src="images/logo16.jpg" class="user"> -->
                   <i style="font-size:35px" class="fa-solid fa-store"></i>
                   <!-- <blockquote>It</blockquote> -->
-                  <h3><span>CONTACTS</span></h3>
+                  <h3><span><a href="{{route('all.available')}}">AVAILABILITY</a></span></h3>
               </div>
           </div>
 
-          <div class="col-md-3 text-center">
+          <div class="col-md-3 text-center" class="row" style="margin-Top:20px;">
             <a href="{{route('all.product')}}">
                 <div class="profile">
                     <!-- <img src="images/logo16.jpg" class="user"> -->
                     <i style="font-size:35px" class="fa-solid fa-users"></i>
                     <!-- <blockquote>It</blockquote> -->
-                    <h3><span>USERS</span></h3>
+                    <h3><span><a href="{{route('all.contact')}}">CONTACTS</a></span></h3>
                 </div>
             </a>            
           </div>
