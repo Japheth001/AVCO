@@ -43,7 +43,7 @@
             <div class="first tab">
                 <div class="form-group">
                     <label for="email">Truck No:</label>
-                    <input class="form-control" type="text" name="truck_id" id="truck_id" required>
+                    <input class="form-control" type="text" name="truck_id" id="truck_id">
                 </div>
                 <div class="form-group">
                     <label for="password">AVCO:</label>
@@ -52,7 +52,7 @@
 
                 <div class="form-group">
                     <label for="password">Serial No:</label>
-                    <input class="form-control" type="text" name="serial_no" id="serial_no" required>
+                    <input class="form-control" type="text" name="serial_no" id="serial_no">
                 </div>
 
                 <div class="form-group">

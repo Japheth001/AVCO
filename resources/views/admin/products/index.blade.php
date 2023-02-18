@@ -29,7 +29,7 @@
     <x-slot name="header">
         <div class="d-flex align-items-center justify-content-between">
           <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <b>All Products</b>
+            <b>AVCO Stock Management</b>
           </h2>
           <div class="d-flex align-items-center">  
             <button type="button" class="btn btn-pdf  mr-2">

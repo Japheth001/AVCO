@@ -158,6 +158,12 @@ Route::get('tyres/add2', [TyresController::class, 'TyreAdd2'])->name('tyre.add2'
 Route::get('/tyre/edit/{id}', [TyresController::class, 'EditTyre']);
 Route::post('tyre/update/{id}', [TyresController::class, 'UpdateTyre']);
 Route::get('tyre/delete/{id}', [TyresController::class, 'DeleteTyre']);
+Route::get('/', function () {
+   
+    $batteries = Battery::all();
+    return view('admin.tyres.tyredash', compact('batteries'));
+    // return view('welcome');
+});
 
 //Tyres Isssue
 Route::get('tyres/allissue', [TyresController::class, 'TyresAllIssue'])->name('tyre.allissue');

@@ -26,14 +26,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js>"
 
-
-
+    
 
   <!--Maintenance Form-->
   <!--Testimonials-->
 <section id="testimonials">
         <div class="container">
-          <h1 style="margin-top:-35px;">AVCO Tyre Department</h1>
+          <h1 style="margin-top:-35px;">AVCO MONITORING SECTION</h1>
           <p style="margin-top:-15px;" class="text-center">Mini Dashboard</p>
 
           <div class="row">
@@ -42,12 +41,14 @@
 
                   <div id="cbtn1">
                   <i style="font-size:35px" <i style="color:black" class="fa-thin fa-tire blackiconcolor">
-                  <a style="text-decoration: none; background-color: transparent;" href="{{route('all.tyre')}}" </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
-                    </div>
+                  <a style="text-decoration: none; background-color: transparent;" href="{{route('all.tyre')}}" </a> <span style="font-size:40px" >{{count($tyres->where('front_or_back_tyre','=','Front' || 'Front' ));}}</span></b></i></a>
+                  
+                </div>
                       <!-- <img src="images/me2.jpg" class="user"> -->
 
                       <!-- <blockquote>I</blockquote> -->
-                      <h3><span>NEW TYRE</span></h3>
+                  
+                      <a style="text-decoration: none;" href="{{route('all.tyre')}}"><h3><span>NEW TYRE</span></h3></a>
                   </div>
               </div>
 
@@ -59,14 +60,14 @@
 
               <div id="cbtn1">
                   <i style="font-size:35px" <i style="color:black" class="fa-thin fa-truck-moving">
-                  <a style="text-decoration: none; background-color: transparent;" href="{{route('tyre.allissue')}}" </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
+                  <a style="text-decoration: none; background-color: transparent;" href="{{route('tyre.allissue')}}" </a> <span style="font-size:40px" >{{count($tyres->where('status','=','Issued'));}}</span></b></i></a>
                     </div>
                   <!-- <img src="images/logo16.jpg" class="user"> -->
                   <!-- <i style="font-size:35px" class="fa-thin fa-truck-moving"></i> -->
 
                   <!-- <blockquote>It</blockquote> -->
-
-                  <h3><span>ISSUE TYRE</span></h3>
+                  <a style="text-decoration: none;" href="{{route('tyre.allissue')}}"><h3><span>ISSUE TYRE</span></h3></a>
+                  
               </div>
           </div>
 
@@ -76,9 +77,10 @@
                   <!-- <img src="images/logo16.jpg" class="user"> -->
                   <i style="font-size:35px" class="fa-thin fa-store"></i>
                   <a style="text-decoration: none; background-color: transparent;" href="{{route('tyre.allstore')}}"
-                </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
+                </a> <span style="font-size:40px" >{{count($tyres->where('status','=','Store'));}}</span></b></i></a>
                   <!-- <blockquote>It</blockquote> -->
-                  <h3><span>ALLOCATE TO STORE</span></h3>
+                  <a style="text-decoration: none;"  href="{{route('tyre.allstore')}}"><h3><span>ALLOCATE TO STORE</span></h3></a>
+                  
               </div>
           </div>
 
@@ -87,9 +89,10 @@
                   <!-- <img src="images/logo16.jpg" class="user"> -->
                   <i style="font-size:35px" class="fa-thin fa-screwdriver-wrench"></i>
                   <a style="text-decoration: none; background-color: transparent;" href="{{route('tyre.allretray')}}"
-                </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
+                </a> <span style="font-size:40px" >{{count($tyres->where('status','=','to-retray'));}}</span></b></i></a>
                   <!-- <blockquote>I </blockquote> -->
-                  <h3><span>TYRES TO RETRAY</span></h3>
+                  <a style="text-decoration: none;" href="{{route('tyre.allretray')}}"><h3><span>TYRES TO RETRAY</span></h3></a>
+                
               </div>
           </div>
 
@@ -98,9 +101,10 @@
                   <!-- <img src="images/logo16.jpg" class="user"> -->
                   <i style="font-size:35px" class="fa-thin fa-tire-flat"></i>
                   <a style="text-decoration: none; background-color: transparent;" href="{{route('tyre.alldefected')}}"
-                </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
+                </a> <span style="font-size:40px" >{{count($tyres->where('status','=','defective'));}}</span></b></i></a>
                   <!-- <blockquote>t</blockquote> -->
-                  <h3><span>DEFECTED TYRES</span></h3>
+                  <a style="text-decoration: none;" href="{{route('tyre.alldefected')}}"><h3><span>DEFECTED TYRES</span></h3></a>
+                  
               </div>
           </div>
 
@@ -112,13 +116,13 @@
               <div class="profile">
 
               <div id="cbtn1">
-                  <i style="font-size:35px" <i style="color:black" class="fa-thin fa-car-battery"><a style="text-decoration: none; background-color: transparent;" href="{{route('new.battery')}}" </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
+                  <i style="font-size:35px" <i style="color:black" class="fa-thin fa-car-battery"><a style="text-decoration: none; background-color: transparent;" </a> <span style="font-size:40px" ></span></b></i></a>
                     </div>
                   <!-- <img src="images/logo16.jpg" class="user"> -->
                   <!-- <i style="font-size:35px" class="fa-thin fa-car-battery"></i> -->
 
                   <!-- <blockquote>t</blockquote> -->
-                  <h3><span>BATTERY MASTER</span></h3>
+                 <a style="text-decoration: none;" href="{{route('new.battery')}}"><h3><span>BATTERY MASTER</span></h3></a>
               </div>
           </div>
 
@@ -129,9 +133,9 @@
                   <!-- <img src="images/logo16.jpg" class="user"> -->
                   <i style="font-size:35px" class="fa-thin fa-tire-flat"></i>
                   <a style="text-decoration: none; background-color: transparent;" href="https://fuelconsumption.000webhostapp.com/app/index.php/Welcome/"
-                </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
+                </a> <span style="font-size:40px" ></span></b></i></a>
                   <!-- <blockquote>t</blockquote> -->
-                  <h3><span>FUEL MONITORING</span></h3>
+                  <a style="text-decoration: none;" href="https://fuelconsumption.000webhostapp.com/app/index.php/Welcome/"><h3><span>FUEL MONITORING</span></h3></a>
               </div>
           </div>
 
@@ -140,10 +144,10 @@
               <div class="profile">
                   <!-- <img src="images/logo16.jpg" class="user"> -->
                   <i style="font-size:35px" class="fa-thin fa-tire-flat"></i>
-                  <a style="text-decoration: none; background-color: transparent;" href="http://127.0.0.1:5000"
-                </a> <span style="font-size:40px" >{{count($tyres)}}</span></b></i></a>
+                  <a style="text-decoration: none; background-color: transparent;"
+                </a> <span style="font-size:40px" ></span></b></i></a>
                   <!-- <blockquote>t</blockquote> -->
-                  <h3><span>TYRE CONDITION</span></h3>
+                  <a style="text-decoration: none;" href="http://127.0.0.1:5000"><h3><span>TIRE CONDITION</span></h3></a>
               </div>
           </div>
 

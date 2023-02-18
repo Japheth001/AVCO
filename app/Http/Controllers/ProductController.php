@@ -23,7 +23,7 @@ class ProductController extends Controller
     public function AllProduct(){
         $brands = Brand::all();
         $categories = NewCatModel::all();
-        $products = Products::latest()->paginate(4);
+        $products = Products::latest()->paginate(3);
         return view('admin.products.index', compact('products', 'categories', 'brands'));
     }
 
