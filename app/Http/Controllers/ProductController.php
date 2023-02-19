@@ -21,8 +21,12 @@ class ProductController extends Controller
     public function AllProduct(){
         $brands = Brand::all();
         $categories = NewCatModel::all();
-        $products = Products::latest()->paginate(3);
-        return view('admin.products.index', compact('products', 'categories', 'brands'));
+        $searchProductName = request()->searchProductName;
+        $products = Products::when(request()->searchProductName, function($query){
+            $query->where('name', 'like', '%'.request()->searchProductName.'%');
+        })->orderBy('created_at', 'desc')->paginate(10);
+        
+        return view('admin.products.index', compact('products', 'categories', 'brands'))->with('searchProductName', $searchProductName);
     }
 
     public function NewProduct()
