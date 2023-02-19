@@ -39,7 +39,7 @@
         </tr>
     </table>
 
-    <h2 class="header" style="color:blue">STOCK REPORT</h2>
+    <h2 class="header" style="color:blue">TRIP REPORT</h2>
     <table class="table">
         <thead>
             <tr>

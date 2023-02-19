@@ -129,9 +129,11 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
-
-                                <tbody>
+                                    @if(count($trips) == 0)
+                                        <tr>
+                                            <td colspan="8" class="text-center">No data found</td>
+                                        </tr>
+                                    @endif
         <!--@php($i=1)-->
         @foreach($trips as $trip)
         <tr>
