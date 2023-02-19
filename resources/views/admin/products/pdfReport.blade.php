@@ -13,6 +13,7 @@
         table {
             border-collapse: collapse;
             width: 100%;
+            margin: auto,
         }
     </style>
 </head>
@@ -23,7 +24,7 @@
     <p class="header">+254 715 200200</p>
     <p class="header">Email: test@example.com ~ https://example.com</p>
 
-    <table align="center" style="margin-left: auto; margin-right: auto;" width="680px" border="0" cellspacing="0" cellpadding="0" >
+    <table style="width:85%; font-size:0.8rem; margin:auto">
         <tr>
             <th>EMPLOYEE NAME</th><td>Christian E</td>
             <th>EMPLOYEE ID</th><td>C001</td>
@@ -34,6 +35,7 @@
         </tr>
         <tr>
             <th>EMAIL</th><td>christian@gmail.com</td>
+            <td></td></td><td></td>
         </tr>
     </table>
 
