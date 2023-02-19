@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Stock Report</title>
+    <title>Trips Report</title>
     <style>
         th, td {
             border: 1px solid;
@@ -39,30 +39,36 @@
         </tr>
     </table>
 
-    <h2 class="header" style="color:blue">STOCK REPORT</h2>
+    <h2 class="header" style="color:blue">TRIP REPORT</h2>
     <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>NAME</th>
-                <th>QUANTITY</th>
-                <th>PRICE</th>
+                <th>TRUCK NO</th>
+                <th>DRIVER</th>
+                <th>TURNBOY</th>
+                <th>START</th>
+                <th>END</th>
+                <th>FILLED BY</th>
                 <th>DATE ADDED</th>
             </tr>
         </thead>
         <tbody>
-            @if(count($products) == 0)
+            @if(count($trips) == 0)
                 <tr>
                     <td colspan="8" class="text-center">No data found</td>
                 </tr>
             @endif
-            @foreach($products as $product)
+            @foreach($trips as $trip)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$product->name}}</td>
-                    <td>{{$product->quantity}}</td>
-                    <td>{{$product->original_price}}</td>
-                    <td>{{$product->created_at}}</td>
+                    <td>{{$trip->truckno}}</td>
+                    <td>{{$trip->driver}}</td>
+                    <td>{{$trip->turnboy}}</td>
+                    <td>{{$trip->startdate}}</td>
+                    <td>{{$trip->enddate}}</td>
+                    <td>{{$trip->user->name}}</td>
+                    <td>{{$trip->created_at}}</td>
                 </tr>
             @endforeach
         </tbody>

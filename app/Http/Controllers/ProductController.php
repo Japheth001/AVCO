@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 use Carbon\Carbon;
-use Dompdf\Dompdf;
-use Dompdf\Options;
 use App\Models\Brand;
 use App\Models\Vehicle;
 use App\Models\Products;
@@ -15,16 +13,19 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ProductRequest;
 use App\Models\ProductQuantityUpdate;
 use Intervention\Image\Facades\Image;
-use PDF;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
-class ProductController extends Controller
-{
+class ProductController extends Controller{
     public $productId;
     public function AllProduct(){
         $brands = Brand::all();
         $categories = NewCatModel::all();
-        $products = Products::latest()->paginate(3);
-        return view('admin.products.index', compact('products', 'categories', 'brands'));
+        $searchProductName = request()->searchProductName;
+        $products = Products::when(request()->searchProductName, function($query){
+            $query->where('name', 'like', '%'.request()->searchProductName.'%');
+        })->orderBy('created_at', 'desc')->paginate(10);
+        
+        return view('admin.products.index', compact('products', 'categories', 'brands'))->with('searchProductName', $searchProductName);
     }
 
     public function NewProduct()
@@ -212,18 +213,15 @@ class ProductController extends Controller
     }
 
     public function generatePdfReport(){
+        $products = Products::when(request()->searchProductName, function($query){
+            $query->where('name', 'like', '%'.request()->searchProductName.'%');
+        })->orderBy('created_at', 'desc')->get();
         $data = [
-            'title' => 'My PDF',
-            'content' => 'This is some PDF content'
+            'products' => $products,
+            'user'=>Auth::user(),
         ];
-
-        $options = new Options();
-        $options->set('defaultFont', 'Arial');
-
-        $pdf = new Dompdf($options);
-        // $pdf->loadView('admin.products.pdfReport', $data);
         $pdf = PDF::loadView('admin.products.pdfReport', $data);
 
-        return $pdf->stream();
+        return $pdf->stream('Stock Report.pdf');
     }
 }

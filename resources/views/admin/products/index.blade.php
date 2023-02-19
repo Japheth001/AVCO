@@ -32,15 +32,18 @@
             <b>AVCO Stock Management</b>
           </h2>
           <div class="d-flex align-items-center">  
+            <form action="#" method="GET" class="form-inline my-2 my-lg-0  mr-2">
+                <input class="form-control mr-sm-2" type="search" name="searchProductName" value="{{$searchProductName}}" placeholder="Enter product name" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
             <button type="button" class="btn btn-pdf  mr-2">
-                <a href="{{ route('product.report.pdf') }}" target="_blank">PDF report</a>
+                <a href="{{ route('product.report.pdf', ['searchProductName'=>$searchProductName]) }}" target="_blank"><i class="fa fa-file-pdf" aria-hidden="true"></i> Report</a>
             </button>          
             <button type="button" style="background-color: #6666ff; margin-left: 20px;" class="btn btn-primary">
                 <a href="{{ route('new.product') }}">
                     <i class="fa-regular fa-square-plus"></i> New
                 </a>
-            </button>
-            
+            </button>            
           </div>
         </div>
     </x-slot>
@@ -103,6 +106,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @if(count($products) == 0)
+                        <tr>
+                            <td colspan="8" class="text-center">No data found</td>
+                        </tr>
+                    @endif
                     <!--@php($i=1)-->
                     @foreach($products as $product)
                         <tr>
