@@ -28,7 +28,7 @@ class TyresController extends Controller
     }
     public function AllTyres()
     {
-        $tyres = Tyres::latest()->paginate(5);
+        $tyres = Tyres::latest()->paginate(4);
         return view('admin.tyres.index', compact('tyres'));
     } 
 
@@ -157,7 +157,7 @@ class TyresController extends Controller
     public function TyresAllIssue()
     {
         $issuetyre=IssueTyre::all();
-        $tyres = Tyres::latest()->paginate(5);
+        $tyres = Tyres::latest()->paginate(4);
         return view('admin.issuetyre.index', compact('tyres','issuetyre'));
     } 
 
@@ -192,7 +192,7 @@ class TyresController extends Controller
     //Store Tyres
     public function StoreTyres()
     {
-        $tyres = Tyres::latest()->paginate(5);
+        $tyres = Tyres::latest()->paginate(4);
         return view('admin.storetyre.index', compact('tyres'));
     } 
 
@@ -217,7 +217,7 @@ class TyresController extends Controller
     }
     public function RetrayTyres()
     {
-        $tyres = Tyres::latest()->paginate(5);
+        $tyres = Tyres::latest()->paginate(4);
         return view('admin.retray.index', compact('tyres'));
     } 
 
@@ -244,7 +244,7 @@ class TyresController extends Controller
 
     public function DefectedTyres()
     {
-        $tyres = Tyres::latest()->paginate(5);
+        $tyres = Tyres::latest()->paginate(4);
         return view('admin.defectedT.index', compact('tyres'));
     } 
 

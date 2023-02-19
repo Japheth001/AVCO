@@ -23,7 +23,7 @@ class MaintenanceController extends Controller
     }
     //
     public function AllMantain(){
-        $mantains=Maintenance::latest()->paginate(5);
+        $mantains=Maintenance::latest()->paginate(4);
         return view('admin.maintain.index', compact('mantains'));
     }
 
