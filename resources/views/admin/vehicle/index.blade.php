@@ -1,11 +1,11 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-           <b>All Vehicless</b>
+           <b>All Vehicles</b>
 
-            
+           <link href="{{asset('forms/cssf.css')}}" rel="stylesheet">
 
-           
+
                     <!-- Button trigger modal -->
 <button type="button" style="width:200px; background-color:#9999ff; margin-left: 400px;" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
   Click to Add New Vehicle
@@ -22,7 +22,7 @@
       <div class="modal-body" >
 
       <div class ="card">
-                        
+
 
 
 
@@ -37,7 +37,7 @@
 
                                             </div>
 
- 
+
                             @error('vehicle_type')
                             <span class="text-danger">{{$message}}</span>
                             @enderror
@@ -53,7 +53,7 @@
                             @error('number_plate')
                             <span class="text-danger">{{$message}}</span>
                             @enderror
-                         
+
 <!--------------------------------------------------------------------------------------------------------->
  <div class="form-group">
                                             <label for="exampleInputEmail1" style="font-size:16px">Vehicle Description </label>
@@ -68,7 +68,7 @@
                             @enderror
 
 <!--------------------------------------------------------------------------------------------------------->
-                           
+
                            <div class="form-group">
                                             <label for="exampleInputEmail1" style="font-size:16px">Assigned Driver</label>
                                             <input type="text" class="form-control"  name="assigned_driver" id="exampleInputEmail1"
@@ -96,7 +96,7 @@
                             @enderror
 
 <!--------------------------------------------------------------------------------------------------------->
-                  
+
 
                             <button style="background-color: #9999ff; width:100px" type="submit" class="btn btn-primary">Submit</button>
                             <button type="button" style="background-color: #9999ff; width:100px; margin-left:50px" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
@@ -106,7 +106,7 @@
       </div>
       <!--<div class="modal-footer">-->
         <!--<button type="button" style="width:200px; background-color:#9999ff; class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
-        
+
       <!--</div>-->
     </div>
   </div>
@@ -118,9 +118,9 @@
 
     </x-slot>
 
-    <br>
 
-    <div class="py-14">
+
+    <div class="py-14" id="grad1">
 
         <div class="container">
             <div class ="row">
@@ -186,7 +186,7 @@
 
 
 
-                
+
 
                     </div>
 

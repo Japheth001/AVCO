@@ -13,7 +13,7 @@
                 </div>
 
                 <!-- Navigation Links -->
-                
+
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
@@ -31,10 +31,7 @@
                         {{ __('   NewTrip  ') }}
                     </x-jet-nav-link>
 
-                    <!-- <x-jet-nav-link href="{{route('all.tripsheets')}}">
-                        {{ __('   Expense  ') }}
-                    </x-jet-nav-link> -->
-
+                  
                    <!-- <x-jet-nav-link href="{{route('all.category') }}">
                         {{ __(' Menu') }}
                     </x-jet-nav-link> -->
@@ -71,9 +68,9 @@
                         {{ __(' Fuel') }}
                     </x-jet-nav-link> -->
 
-                    <x-jet-nav-link href="{{route('all.fuel')}}">
+                    <!-- <x-jet-nav-link href="{{route('all.fuel')}}">
                         {{ __(' Reports') }}
-                    </x-jet-nav-link>
+                    </x-jet-nav-link> -->
 
                     <x-jet-nav-link href="{{route('all.mantain')}}">
                         {{ __(' Maintenance') }}
@@ -82,6 +79,10 @@
                     <!-- <x-jet-nav-link href="{{route('all.multi')}}">
                         {{ __(' Multi Image') }}
                     </x-jet-nav-link> -->
+
+                    <x-jet-nav-link href="{{route('all.expense')}}">
+                        {{ __('   Expense  ') }}
+                    </x-jet-nav-link>
 
                 </div>
             </div>
