@@ -302,6 +302,7 @@ Route::post('ntripsheet/add', [NTripSheet::class, 'AddTrip'])->name('tripsheets.
 Route::get('/ntripsheet/getTrip/{id}', [NTripSheet::class, 'GetTrip']);
 Route::post('/ntripsheet/update/{id}', [NTripSheet::class, 'UpdateTrip'])->name('tripsheets.update');
 Route::get('ntripsheet/delete/{id}', [NTripSheet::class, 'DeleteTrip']);
+Route::get('ntripsheet/report/pdf', [NTripSheet::class, 'generatePdfReport'])->name('tripsheets.report.pdf');
 
 //Fill Expense Record
 Route::get('/expense/all', [ExpenseController::class, 'AllExpense'])->name('all.expense');

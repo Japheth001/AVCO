@@ -15,8 +15,7 @@ use App\Models\ProductQuantityUpdate;
 use Intervention\Image\Facades\Image;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
 
-class ProductController extends Controller
-{
+class ProductController extends Controller{
     public $productId;
     public function AllProduct(){
         $brands = Brand::all();
@@ -214,7 +213,9 @@ class ProductController extends Controller
     }
 
     public function generatePdfReport(){
-        $products = Products::all();
+        $products = Products::when(request()->searchProductName, function($query){
+            $query->where('name', 'like', '%'.request()->searchProductName.'%');
+        })->orderBy('created_at', 'desc')->get();
         $data = [
             'products' => $products
         ];

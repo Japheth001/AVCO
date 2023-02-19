@@ -1,36 +1,53 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="max-height: 7px;">
-           <b>All TripList</b>
-
-
-
-
-                       <!-- Button trigger modal -->
-                <div>
-                    <button type="button" style="background-color: #6666ff; margin-left: 1200px; margin-top:-35px;" class="btn btn-primary"> <a href="{{route('all.tripsheets')}}"/>
-                    <i class="fa-regular fa-square-plus"/></i></a>
-                    </button>
-                </div>
-
-        </h2>
-
-
-    </x-slot>
-
-
-
     <script src="{{asset('dist/assets/sweetalert2.min.js')}}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
     integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
-     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link href="{{asset('forms/cssf.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('dist/assets/sweetalert2.min.css')}}">
 
-     <link href="{{asset('forms/cssf.css')}}" rel="stylesheet">
+    <style>
+        .btn-pdf {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            transition: all 0.3s ease-in-out;
+        }
 
-<link rel="stylesheet" href="{{asset('dist/assets/sweetalert2.min.css')}}">
-
-    
+        .btn-pdf:hover {
+            background-color: #0062cc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+    <x-slot name="header">
+        <div class="d-flex align-items-center justify-content-between">
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight" style="max-height: 7px;">
+            <b>All TripList</b>
+            </h2>
+            <div class="d-flex align-items-center">  
+                <form action="#" method="GET" class="form-inline my-2 my-lg-0  mr-2">
+                    <input class="form-control mr-sm-2" type="search" name="queryTripName" value="{{$queryTripName}}" placeholder="Enter name" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <button type="button" class="btn btn-pdf  mr-2">
+                    <a href="{{ route('tripsheets.report.pdf', ['queryTripName'=>$queryTripName]) }}" target="_blank"><i class="fa fa-file-pdf" aria-hidden="true"></i> Report</a>
+                </button>          
+                <button type="button" style="background-color: #6666ff; margin-left: 20px;" class="btn btn-primary">
+                    <a href="{{route('all.tripsheets')}}">
+                        <i class="fa-regular fa-square-plus"></i> New
+                    </a>
+                </button>            
+            </div>
+        </div>
+    </x-slot>   
 
     <div class="py-14" id="grad1">
 
@@ -90,17 +107,7 @@
 
                                 </div>
                             @endif
-
-
-
-
-
-
-
-
-
                         <div class= "card-header">Registered trip Records</div>
-
 
                         <table class="table">
                                 <thead>

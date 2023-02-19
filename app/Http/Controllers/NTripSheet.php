@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\NTrip;
+use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -28,10 +29,17 @@ class NTripSheet extends Controller
         return view('admin.tripsheet.addnew', compact('trips'));
     }
 
-    public function ViewTrips()
-    {
-        $trips = NTrip::latest()->paginate(4);
-        return view('admin.tripsheet.index', compact('trips'));
+    public function ViewTrips(){
+        $queryTripName = request()->queryTripName;
+        $trips = NTrip::when(request()->queryTripName, function($query){
+            $query->where('driver', 'like', '%'.request()->queryTripName.'%')
+            ->orWhere('turnboy', 'like', '%'.request()->queryTripName.'%')
+            ->orWhere('truckno', 'like', '%'.request()->queryTripName.'%')
+            ->orWhereHas('user', function($query){
+                $query->where('name', 'like', '%'.request()->queryTripName.'%');
+            });
+        })->orderBy('created_at', 'desc')->paginate(10); 
+        return view('admin.tripsheet.index', compact('trips'))->with('queryTripName', $queryTripName);
     }
 
     public function AddTrip(Request $request)
@@ -164,11 +172,27 @@ class NTripSheet extends Controller
         return Redirect()->route('view.tripsheets')->with('update', 'Record Updated Successfully!');
     }
 
-    public function DeleteTrip($id)
-    {
+    public function DeleteTrip($id){
 
         NTrip::find($id)->delete();
         return redirect()->back()->with('delete', 'Deleted!');
     }
 
+    public function generatePdfReport(){        
+        $trips = NTrip::when(request()->queryTripName, function($query){
+            $query->where('driver', 'like', '%'.request()->queryTripName.'%')
+            ->orWhere('turnboy', 'like', '%'.request()->queryTripName.'%')
+            ->orWhere('truckno', 'like', '%'.request()->queryTripName.'%')
+            ->orWhereHas('user', function($query){
+                $query->where('name', 'like', '%'.request()->queryTripName.'%');
+            });
+        })->orderBy('created_at', 'desc')->get();       
+
+        $data = [
+            'trips' => $trips
+        ];
+        $pdf = PDF::loadView('admin.tripsheet.pdfReport', $data);
+
+        return $pdf->stream('Trips Report.pdf');
+    }
 }

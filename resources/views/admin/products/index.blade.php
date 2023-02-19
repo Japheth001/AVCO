@@ -37,14 +37,13 @@
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
             <button type="button" class="btn btn-pdf  mr-2">
-                <a href="{{ route('product.report.pdf') }}" target="_blank"><i class="fa fa-file-pdf" aria-hidden="true"></i> Report</a>
+                <a href="{{ route('product.report.pdf', ['searchProductName'=>$searchProductName]) }}" target="_blank"><i class="fa fa-file-pdf" aria-hidden="true"></i> Report</a>
             </button>          
             <button type="button" style="background-color: #6666ff; margin-left: 20px;" class="btn btn-primary">
                 <a href="{{ route('new.product') }}">
                     <i class="fa-regular fa-square-plus"></i> New
                 </a>
-            </button>
-            
+            </button>            
           </div>
         </div>
     </x-slot>
