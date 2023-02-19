@@ -217,7 +217,8 @@ class ProductController extends Controller{
             $query->where('name', 'like', '%'.request()->searchProductName.'%');
         })->orderBy('created_at', 'desc')->get();
         $data = [
-            'products' => $products
+            'products' => $products,
+            'user'=>Auth::user(),
         ];
         $pdf = PDF::loadView('admin.products.pdfReport', $data);
 

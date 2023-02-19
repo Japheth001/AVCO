@@ -26,15 +26,15 @@
 
     <table style="width:85%; font-size:0.8rem; margin:auto">
         <tr>
-            <th>EMPLOYEE NAME</th><td>Christian E</td>
-            <th>EMPLOYEE ID</th><td>C001</td>
+            <th>EMPLOYEE NAME</th><td>{{$user->name}}</td>
+            <th>EMPLOYEE ID</th><td>C{{$user->id}}</td>
         </tr>
         <tr>
             <th>DEPARTMENT</th><td>ICT</td>
-            <th>ADMITTED DATE</th><td>222-07-07</td>
+            <th>ADMITTED DATE</th><td>{{ Carbon\Carbon::parse ($user->created_at)->format('Y-m-d')}}</td>
         </tr>
         <tr>
-            <th>EMAIL</th><td>christian@gmail.com</td>
+            <th>EMAIL</th><td>{{$user->email}}</td>
             <td></td></td><td></td>
         </tr>
     </table>

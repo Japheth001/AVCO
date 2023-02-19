@@ -186,10 +186,10 @@ class NTripSheet extends Controller
             ->orWhereHas('user', function($query){
                 $query->where('name', 'like', '%'.request()->queryTripName.'%');
             });
-        })->orderBy('created_at', 'desc')->get();       
-
+        })->orderBy('created_at', 'desc')->get();  
         $data = [
-            'trips' => $trips
+            'trips' => $trips,
+            'user' => Auth::user()
         ];
         $pdf = PDF::loadView('admin.tripsheet.pdfReport', $data);
 
